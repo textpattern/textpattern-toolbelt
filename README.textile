@@ -2,7 +2,7 @@ h1. Developer Toolbelt for Textpattern CMS
 
 !http://textpattern.com/assets/img/branding/carver/carver-128px.svg(Textpattern Logo)!:http://textpattern.com
 
-A collection of tools which help to develop [Textpattern CMS](http://textpattern.com/).
+A collection of tools which help to develop "Textpattern CMS":http://textpattern.com/.
 
 h2(#contributing). Contributing
 
