@@ -1,0 +1,13 @@
+h1. Developer Toolbelt for Textpattern CMS
+
+!http://textpattern.com/assets/img/branding/carver/carver-128px.svg(Textpattern Logo)!:http://textpattern.com
+
+A collection of tools which help to develop [Textpattern CMS](http://textpattern.com/).
+
+h2(#contributing). Contributing
+
+Please see "CONTRIBUTING.textile":https://github.com/textpattern/textpattern/blob/master/CONTRIBUTING.textile for details on how to get involved with the project.
+
+h2(#legal). Legal
+
+Released under the GNU General Public License. See "LICENSE.txt":https://github.com/textpattern/textpattern/blob/master/LICENSE.txt for terms and conditions.
