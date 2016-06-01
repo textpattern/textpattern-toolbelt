@@ -34,14 +34,12 @@ OLDDIR=`pwd`
 
 if [ $# -eq 2 ]; then
     DESTDIR=$2
-else
-    DESTDIR=$TMPDIR
+    REPODIR=$OLDDIR
 fi
 
 if [ $# -eq 3 ]; then
+    DESTDIR=$2
     REPODIR=$3
-else
-    REPODIR=$OLDDIR
 fi
 
 cd $REPODIR
