@@ -29,12 +29,12 @@ if [ $# -lt 1 ]; then
 fi
 
 VER=$1
-TMPDIR=`mktemp -d -t txp`
+DESTDIR=`mktemp -d "${TMPDIR:-/tmp}/txp.XXXXXXXXX"`
 OLDDIR=`pwd`
+REPODIR=$OLDDIR
 
 if [ $# -eq 2 ]; then
     DESTDIR=$2
-    REPODIR=$OLDDIR
 fi
 
 if [ $# -eq 3 ]; then
