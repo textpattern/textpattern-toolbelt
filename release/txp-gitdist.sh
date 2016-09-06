@@ -52,12 +52,14 @@ cd $DESTDIR
 rm textpattern-$VER.tar.gz
 rm textpattern-$VER.zip
 rm textpattern-$VER/composer.json
+rm textpattern-$VER/.gitignore
+rm textpattern-$VER/images/.gitignore
 rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
 
 tar cvf - -C $DESTDIR textpattern-$VER | gzip -c > textpattern-$VER.tar.gz
 
-zip  -r textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
+zip -r textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
 
 cd $OLDDIR
 
