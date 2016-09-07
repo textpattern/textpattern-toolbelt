@@ -54,6 +54,8 @@ rm textpattern-$VER.zip
 rm textpattern-$VER/composer.json
 rm textpattern-$VER/.gitignore
 rm textpattern-$VER/images/.gitignore
+rm textpattern-$VER/textpattern/.gitignore
+rm textpattern-$VER/textpattern/tmp/.gitignore
 rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
 
