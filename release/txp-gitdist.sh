@@ -58,6 +58,7 @@ rm textpattern-$VER/textpattern/.gitignore
 rm textpattern-$VER/textpattern/tmp/.gitignore
 rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
+rm textpattern-$VER/README.textile
 
 tar cvf - -C $DESTDIR textpattern-$VER | gzip -c > textpattern-$VER.tar.gz
 
