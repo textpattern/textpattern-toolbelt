@@ -61,8 +61,10 @@ rm textpattern-$VER/.phpstorm.meta.php
 rm textpattern-$VER/README.md
 
 tar cvf - -C $DESTDIR textpattern-$VER | gzip -c > textpattern-$VER.tar.gz
+md5 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.md5
 
 zip -r textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
+md5 textpattern-$VER.zip > textpattern-$VER.zip.md5
 
 cd $OLDDIR
 
