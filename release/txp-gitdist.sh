@@ -52,6 +52,7 @@ cd $DESTDIR
 rm textpattern-$VER.tar.gz
 rm textpattern-$VER.zip
 rm textpattern-$VER/composer.json
+rm textpattern-$VER/package.json
 rm textpattern-$VER/.gitignore
 rm textpattern-$VER/images/.gitignore
 rm textpattern-$VER/textpattern/.gitignore
