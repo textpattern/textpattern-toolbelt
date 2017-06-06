@@ -2,10 +2,10 @@
 
 #/*
 # * Textpattern Content Management System
-# * http://textpattern.com
+# * http://textpattern.io
 # *
 # * Copyright (C) 2005 Dean Allen
-# * Copyright (C) 2016 The Textpattern Development Team
+# * Copyright (C) 2017 The Textpattern Development Team
 # *
 # * This file is part of Textpattern.
 # *
@@ -19,7 +19,7 @@
 # * GNU General Public License for more details.
 # *
 # * You should have received a copy of the GNU General Public License
-# * along with Textpattern. If not, see <http://www.gnu.org/licenses/>.
+# * along with Textpattern. If not, see <https://www.gnu.org/licenses/>.
 # */
 
 if [ $# -lt 1 ]; then
@@ -62,10 +62,10 @@ rm textpattern-$VER/.phpstorm.meta.php
 rm textpattern-$VER/README.md
 
 tar cvf - -C $DESTDIR textpattern-$VER | gzip -c > textpattern-$VER.tar.gz
-md5 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.md5
+shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM
 
 zip -r textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
-md5 textpattern-$VER.zip > textpattern-$VER.zip.md5
+shasum -a 256 textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM
 
 cd $OLDDIR
 
