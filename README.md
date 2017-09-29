@@ -1,10 +1,10 @@
 # Developer Toolbelt for Textpattern CMS
 
-A collection of tools which help to develop [Textpattern CMS](http://textpattern.com/).
+A collection of tools which help to develop [Textpattern CMS](https://textpattern.com/).
 
 ## Contributing
 
-Please see the [Contributing documentation](http://docs.textpattern.io/development/contributing) for details on how to get involved with the project.
+Please see the [Contributing documentation](https://docs.textpattern.io/development/contributing) for details on how to get involved with the project.
 
 ## Legal
 

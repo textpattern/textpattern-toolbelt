@@ -2,7 +2,7 @@
 
 #/*
 # * Textpattern Content Management System
-# * http://textpattern.io
+# * https://textpattern.com/
 # *
 # * Copyright (C) 2005 Dean Allen
 # * Copyright (C) 2017 The Textpattern Development Team
@@ -59,9 +59,8 @@ rm textpattern-$VER/textpattern/.gitignore
 rm textpattern-$VER/textpattern/tmp/.gitignore
 rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
-rm textpattern-$VER/CODE_OF_CONDUCT.md
-rm textpattern-$VER/CONTRIBUTING.md
 rm textpattern-$VER/README.md
+rmdir textpattern-$VER/.github
 
 tar cvf - -C $DESTDIR textpattern-$VER | gzip -c > textpattern-$VER.tar.gz
 shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM
