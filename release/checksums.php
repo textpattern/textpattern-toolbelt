@@ -64,12 +64,12 @@ switch ($action) {
             file_put_contents($destination, implode(n, $files));
             $files = calculate_checksums();
         }
-
         break;
 }
 
 if ($files) {
     file_put_contents($destination, implode(n, $files));
+    echo "Checksums updated in ".$destination.".\n";
 }
 
 /**
@@ -88,7 +88,7 @@ function files_to_checksum($folder, $pattern)
     $files = new RegexIterator($iter, $pattern, RegexIterator::GET_MATCH);
     $fileList = array();
 
-    foreach($files as $file) {
+    foreach ($files as $file) {
         $fileList = array_merge($fileList, $file);
     }
 
