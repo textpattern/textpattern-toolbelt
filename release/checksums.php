@@ -24,11 +24,15 @@
 
 define('txpinterface', 'cli');
 
-if (php_sapi_name() !== 'cli')
-	die('command line only');
+if (php_sapi_name() !== 'cli') {
+    die('command line only');
+}
 
-if (empty($argv[1]))
-	die("usage: {$argv[0]} <txpath>\n");
+if (empty($argv[1])) {
+    die("usage: {$argv[0]} <txpath> [update|rebuild]\n");
+}
+
+$action = empty($argv[2]) ? 'update' : $argv[2];
 
 define('txpath', rtrim(realpath($argv[1]), '/'));
 define('n', "\n");
@@ -37,7 +41,72 @@ $event = '';
 $prefs['enable_xmlrpc_server'] = true;
 require_once(txpath.'/lib/constants.php');
 require_once(txpath.'/lib/txplib_misc.php');
+$files = array();
+$destination = txpath.DS.'checksums.txt';
 
-foreach (check_file_integrity(INTEGRITY_MD5) as $file => $md5) {
-	echo "$file: $md5".n;
+switch ($action) {
+    case 'update':
+        $files = calculate_checksums();
+        break;
+    case 'rebuild':
+        $files = files_to_checksum(txpath, '/.*\.(?:php|js)$/');
+
+        // Append root and rpc files.
+        $files = array_merge($files, glob(txpath.DS.'..'.DS.'*.php'));
+        $files = array_merge($files, glob(txpath.DS.'..'.DS.'rpc'.DS.'*.php'));
+
+        // Remove setup.
+        $files = array_filter($files, function($e) { return (strpos($e, '/setup') === false); });
+
+        // Output list.
+        if ($files) {
+            $files = array_map(function ($str) { return str_replace(txpath, '', $str.": ".str_repeat('a', 32)); }, $files);
+            file_put_contents($destination, implode(n, $files));
+            $files = calculate_checksums();
+        }
+
+        break;
+}
+
+if ($files) {
+    file_put_contents($destination, implode(n, $files));
+}
+
+/**
+ * Recursively fetch files from the given root.
+ *
+ * Dot files and directories are skipped.
+ *
+ * @param  string $folder  Path to the start point (root directory to traverse)
+ * @param  string $pattern Full regex filter to apply
+ * @return array           List of files
+ */
+function files_to_checksum($folder, $pattern)
+{
+    $dir = new RecursiveDirectoryIterator($folder, RecursiveDirectoryIterator::SKIP_DOTS);
+    $iter = new RecursiveIteratorIterator($dir);
+    $files = new RegexIterator($iter, $pattern, RegexIterator::GET_MATCH);
+    $fileList = array();
+
+    foreach($files as $file) {
+        $fileList = array_merge($fileList, $file);
+    }
+
+    return $fileList;
+}
+
+/**
+ * Recalculate checksums of all files in the destination file.
+ *
+ * @return array List of files and their checksums
+ */
+function calculate_checksums()
+{
+    $fileList = array();
+
+    foreach (check_file_integrity(INTEGRITY_MD5) as $file => $md5) {
+        $fileList[] = "$file: $md5";
+    }
+
+    return $fileList;
 }
