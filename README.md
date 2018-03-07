@@ -56,15 +56,15 @@ php /path/to/textpattern-toolbelt/release/checksums.php /path/to/dev/textpattern
 
 9. Copy the entire bundle to a local directory and test. Things to look for:
 
-  1. New installation/setup works.
-  2. Upgrade from (populated) recent versions works.
-  3. Multi-site installations work.
-  4. Automated installations work.
-  5. Version numbers are reported correctly throughout.
-  6. The High Diagnostics panel reports everything correctly.
-  7. Public tags provide expected output.
-  8. Runs on as manay versions of PHP, MySQL (or off-brand equivalents), Apache, Nginx.
-  9. Left over files that need deleting.
+   1. New installation/setup works.
+   2. Upgrade from (populated) recent versions works.
+   3. Multi-site installations work.
+   4. Automated installations work.
+   5. Version numbers are reported correctly throughout.
+   6. The High Diagnostics panel reports everything correctly.
+   7. Public tags provide expected output.
+   8. Runs on as manay versions of PHP, MySQL (or off-brand equivalents), Apache, Nginx.
+   9. Left over files that need deleting.
 
 Fix anything that doesn't work, and commit changes to the `release-x.y.z` branch. Run checksums again if required and commit.
 
