@@ -35,7 +35,7 @@ Update HISTORY.txt and write an announcement for the blog, forum, and the mailin
 
 ### Step 3
 
-Update version number in README.txt / README.md and theme mainfests.
+Update version number in README.txt / README.md and theme manifests.
 
 ### Step 4
 
