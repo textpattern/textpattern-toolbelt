@@ -60,7 +60,6 @@ rm textpattern-$VER/textpattern/tmp/.gitignore
 rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
 rm textpattern-$VER/README.md
-rm textpattern-$VER/README.md
 rm -rf textpattern-$VER/.github
 
 # Bundle up.
