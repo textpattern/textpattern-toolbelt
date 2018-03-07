@@ -55,7 +55,9 @@ HISTORY and version numbers for x.y.z
 
 ### Step 7
 
-Edit `/textpattern/index.php` to bump version number. **Most importantly:**
+Edit `/textpattern/index.php` to bump version number.
+
+**Most importantly:**
 
 Release type | Note
 ------------ | ----
@@ -108,16 +110,13 @@ cd /path/to/repo
 ### Step 12
 
 Verify packages have been built correctly. Unzip them to check.
+Generate SHA256 checksums for the download package(s) (using CLI or an online tool) and copy them for later use.
 
 ### Step 13
 
 Prepare a release for vx.y.z on GitHub, and attach packages. A tag will be created. Use `git pull` to bring the new tag down to your local repo.
 
 ### Step 14
-
-Generate SHA256 checksums for the download package(s) (using CLI or an online tool). Copy for later use.
-
-### Step 15
 
 Upload packages to textpattern.com website. Ensure they comply with the semantic filename versioning rules.
 
@@ -132,11 +131,11 @@ Current beta release (Gzip format)
 
 Make sure the `Title` and `Description` fields are filled out correctly (see previous files for examples of this).
 
-### Step 16
+### Step 15
 
 Remove the category assignment from previous uploads of a beta / stable releases. Note you can have a stable release and a beta release at the same time, but it's good housekeeping to remove old categories from previous releases. Everything is built automatically based on these category assignments.
 
-### Step 17
+### Step 16
 
 When writing the corresponding article, use the shortcode as follows:
 
@@ -145,11 +144,11 @@ notextile. <txp::media_file filename="textpattern-x.y.z.zip" sha256="a868c05fc37
 <txp::media_file filename="textpattern-x.y.z.tar.gz" sha256="77b12daf91a9a2762f9df7b410c43d05e7ab7a12e32614f534f49b910b3ec303" />
 ```
 
-### Step 18
+### Step 17
 
 Add a section to the 'Get started' article when a beta is available (remove it from here at the end of the beta cycle but leave it in its dedicated article for posterity).
 
-### Step 19
+### Step 18
 
 Prepare for ongoing development:
 
@@ -157,15 +156,15 @@ Prepare for ongoing development:
 git checkout release-x.y.z
 ```
 
-### Step 20
+### Step 19
 
 Edit `/textpattern/index.php` to bump version number to next minor release. Ensure it has `-dev` suffix.
 
-### Step 21
+### Step 20
 
 Set `$txp_is_dev` to `true` if it was previously `false`, then commit.
 
-### Step 22
+### Step 21
 
 Merge release to dev so any changes in the release are recorded:
 
@@ -175,7 +174,7 @@ git merge release-x.y.z
 git push
 ```
 
-### Step 23
+### Step 22
 
 Delete release branch as it has served its purpose.
 
@@ -183,22 +182,20 @@ Delete release branch as it has served its purpose.
 git branch -d release-x.y.z
 ```
 
-### Step 24
-
 You might have to use `-D` switch if the branch deletion complains it's 'unmerged': that's because we just modified it ready for returning to dev. It depends if the release branch was pushed to the central repo or not. If so:
 
 ```bash
 git push origin —-delete release-x.y.z
 ```
 
-### Step 25
+### Step 23
 
 Post announcements to forum / twitter / relevant social media.
 
-### Step 26
+### Step 24
 
 Search through all textpattern.com articles to update any outdated version numbers (in case articles were written in advance or features got moved between versions, or reference the download itself).
 
-### Step 27
+### Step 25
 
 Light cigar and wait for the fallout. Sleep.
