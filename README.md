@@ -60,7 +60,7 @@ HISTORY and version numbers for x.y.z
 
 ### Step 7
 
-Edit `/textpattern/index.php` to bump version number.
+Edit `/textpattern/index.php` to bump main version number.
 
 **Most importantly:**
 
