@@ -14,20 +14,24 @@ Licensed under the [GPLv2 license](https://github.com/textpattern/textpattern/bl
 
 When it comes time to bundle up a development version for release, the following process should be followed to ensure smooth continued development.
 
-**Notes:**
+#### Notes
 
 * Semantic versioning is adopted with major.minor.patch standards.
 * Development code is suffixed `-dev`.
 * Beta code is suffixed `-beta`, `-beta.2`, `-beta.3`, ...
 * Any reference to `x.y.z` below refers to the version number and may be suffixed as mentioned.
 
-1. From the dev branch, create a `release-x.y.z` branch for the new version:
+### Step 1
+
+From the dev branch, create a `release-x.y.z` branch for the new version:
 
 ```
 git checkout -b release-x.y.z dev
 ```
 
-2. Update HISTORY.txt and write an announcement for the blog, forum, and the mailinglist txp-announce@ (don't post yet).
+### Step 2
+
+Update HISTORY.txt and write an announcement for the blog, forum, and the mailinglist txp-announce@ (don't post yet).
 
 3. Update version number in README.txt / README.md and theme mainfests.
 
