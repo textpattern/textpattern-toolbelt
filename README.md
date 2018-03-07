@@ -35,7 +35,12 @@ Update HISTORY.txt and write an announcement for the blog, forum, and the mailin
 
 ### Step 3
 
-Update version number in README.txt / README.md and theme manifests.
+Update version numbers in:
+* `README.txt`
+* `README.md`
+* The `version` pref val in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
+
+* Theme manifests.
 
 ### Step 4
 
@@ -109,12 +114,18 @@ cd /path/to/repo
 
 ### Step 12
 
-Verify packages have been built correctly. Unzip them to check.
-Generate SHA256 checksums for the download package(s) (using CLI or an online tool) and copy them for later use.
+Verify packages have been built correctly. Unzip them to check. SHA256 checksums are automatically built for the download package(s).
 
 ### Step 13
 
-Prepare a release for vx.y.z on GitHub, and attach packages. A tag will be created. Use `git pull` to bring the new tag down to your local repo.
+Prepare a release for version x.y.z on GitHub:
+* Set the tag to just the vanilla version number `x.y.z` along with any required `-beta` suffix.
+* Ensure the target select box is `master`.
+* Use the same tag name for the release Title, but prefix it with a lower case `v`.
+* Attach packages and SHA256 checksums.
+* If it's a beta, ensure the `Pre-release` checkbox is set.
+
+Use `git pull` to bring the new tag down to your local repo.
 
 ### Step 14
 
@@ -158,7 +169,8 @@ git checkout release-x.y.z
 
 ### Step 19
 
-Edit `/textpattern/index.php` to bump version number to next minor release. Ensure it has `-dev` suffix.
+Edit `/textpattern/index.php` to bump version number to next release. Ensure it has `-dev` suffix.
+If this release is a beta, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
 ### Step 20
 
