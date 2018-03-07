@@ -46,10 +46,13 @@ git checkout-index -a -f --prefix=$DESTDIR/textpattern-$VER/
 
 cd $DESTDIR
 
+# Tidy and remove development helper files.
 rm textpattern-$VER.tar.gz
 rm textpattern-$VER.zip
+find . -name '.DS_Store' -type f -delete
 rm textpattern-$VER/composer.json
 rm textpattern-$VER/package.json
+rm textpattern-$VER/.gitattributes
 rm textpattern-$VER/.gitignore
 rm textpattern-$VER/images/.gitignore
 rm textpattern-$VER/textpattern/.gitignore
@@ -57,12 +60,14 @@ rm textpattern-$VER/textpattern/tmp/.gitignore
 rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
 rm textpattern-$VER/README.md
-rmdir textpattern-$VER/.github
+rm textpattern-$VER/README.md
+rm -rf textpattern-$VER/.github
 
+# Bundle up.
 tar cvf - -C $DESTDIR textpattern-$VER | gzip -c > textpattern-$VER.tar.gz
 shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM
 
-zip -r textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
+zip --symlinks -r textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
 shasum -a 256 textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM
 
 cd $OLDDIR
