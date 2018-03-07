@@ -4,10 +4,7 @@
 # * Textpattern Content Management System
 # * https://textpattern.com/
 # *
-# * Copyright (C) 2005 Dean Allen
-# * Copyright (C) 2017 The Textpattern Development Team
-# *
-# * This file is part of Textpattern.
+# * Copyright (C) 2018 The Textpattern Development Team
 # *
 # * Textpattern is free software; you can redistribute it and/or
 # * modify it under the terms of the GNU General Public License
