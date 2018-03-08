@@ -105,7 +105,7 @@ git push
 
 ### Step 11
 
-Run build script. It will build two package files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
+Run build script. It will build a package (zip) file in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
 
 ```bash
 cd /path/to/repo
@@ -114,7 +114,7 @@ cd /path/to/repo
 
 ### Step 12
 
-Verify packages have been built correctly. Unzip them to check. SHA256 checksums are automatically built for the download package(s).
+Verify package has been built correctly, including symlink verification in the `/sites` directory. Unzip it to check. An SHA256 checksum file is automatically built for the download package.
 
 ### Step 13
 
@@ -122,22 +122,20 @@ Prepare a release for version x.y.z on GitHub:
 * Set the tag to just the vanilla version number `x.y.z` along with any required `-beta` suffix.
 * Ensure the target select box is `master`.
 * Use the same tag name for the release Title, but prefix it with a lower case `v`.
-* Attach packages and SHA256 checksums.
+* Attach package and SHA256 checksum.
 * If it's a beta, ensure the `Pre-release` checkbox is set.
 
 Use `git pull` to bring the new tag down to your local repo.
 
 ### Step 14
 
-Upload packages to textpattern.com website. Ensure they comply with the semantic filename versioning rules.
+Upload package to textpattern.com website. Ensure it complies with the semantic filename versioning rules.
 
-For each uploaded file, select the appropriate file category:
+Select the appropriate file category for the download:
 
 ```
-Current release (Zip format)
-Current release (Gzip format)
-Current beta release (Zip format)
-Current beta release (Gzip format)
+Current release
+Current beta release
 ```
 
 Make sure the `Title` and `Description` fields are filled out correctly (see previous files for examples of this).
@@ -152,7 +150,6 @@ When writing the corresponding article, use the shortcode as follows:
 
 ```html
 notextile. <txp::media_file filename="textpattern-x.y.z.zip" sha256="a868c05fc37108f2bb5e878cfbcdc61a82ce2646c4676cccb8105a6c6277be7a" />
-<txp::media_file filename="textpattern-x.y.z.tar.gz" sha256="77b12daf91a9a2762f9df7b410c43d05e7ab7a12e32614f534f49b910b3ec303" />
 ```
 
 ### Step 17
@@ -174,7 +171,7 @@ If this release is a beta, it's okay to revert the version number to the same `x
 
 ### Step 20
 
-Set `$txp_is_dev` to `true` if it was previously `false`, then commit.
+Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied.
 
 ### Step 21
 
