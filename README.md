@@ -174,7 +174,7 @@ If this release is a beta, it's okay to revert the version number to the same `x
 
 ### Step 20
 
-Set `$txp_is_dev` to `true` if it was previously `false`, then commit.
+Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied.
 
 ### Step 21
 
