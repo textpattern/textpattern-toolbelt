@@ -52,8 +52,9 @@ switch ($action) {
         $files = array_merge($files, glob(txpath.DS.'..'.DS.'*.php'));
         $files = array_merge($files, glob(txpath.DS.'..'.DS.'rpc'.DS.'*.php'));
 
-        // Remove setup.
+        // Remove setup and config-dist.php.
         $files = array_filter($files, function($e) { return (strpos($e, '/setup') === false); });
+        $files = array_filter($files, function($e) { return (strpos($e, '/config-dist') === false); });
 
         // Output list.
         if ($files) {
