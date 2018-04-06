@@ -48,15 +48,11 @@ Check for files containing Windows line-endings (`\r\n`) and convert those to Un
 
 ### Step 5
 
-Because upgrade scripts don't run on new installs, make sure the contents of the `setup` directory is completely in sync with all that's done in the /update scripts. Most of this is handled automatically but any per-user prefs or values injected form the setup process may need to be added by hand.
+Because upgrade scripts don't run on new installs, make sure the contents of the `setup` directory is completely in sync with all that's done in the /update scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added by hand.
 
 ### Step 6
 
-Commit all changes with commit message:
-
-```
-HISTORY and version numbers for x.y.z
-```
+Commit all changes with commit message such as `HISTORY and version numbers for x.y.z`.
 
 ### Step 7
 
@@ -71,11 +67,12 @@ Beta | Leave `$txp_is_dev` at `true`, then commit.
 
 ### Step 8
 
-Run `checksums.php` from textpattern-toolbelt and commit:
+Run `checksums.php` from textpattern-toolbelt:
 
 ```php
 php /path/to/textpattern-toolbelt/release/checksums.php /path/to/dev/textpattern rebuild
 ```
+Commit with message such as `Checksums for x.y.z`.
 
 ### Step 9
 
@@ -91,7 +88,7 @@ Copy the entire bundle to a local directory and test. Things to look for:
 8. Runs on as many versions of PHP, MySQL (or off-brand equivalents), Apache, Nginx.
 9. Left over files that need deleting.
 
-Fix anything that doesn't work, and commit changes to the `release-x.y.z` branch. Run checksums again if required and commit.
+Fix anything that doesn't work, and commit changes to the `release-x.y.z` branch. Run checksums again if required and commit with message such as `This is x.y.z`.
 
 ### Step 10
 
@@ -125,7 +122,7 @@ Prepare a release for version x.y.z on GitHub:
 * Attach packages and SHA256 checksums.
 * If it's a beta, ensure the `Pre-release` checkbox is set.
 
-Use `git pull` to bring the new tag down to your local repo.
+Use `git pull` to bring the new tag down to your local repo's `master` branch.
 
 ### Step 14
 
@@ -151,8 +148,8 @@ Remove the category assignment from previous uploads of a beta / stable releases
 When writing the corresponding article, use the shortcode as follows:
 
 ```html
-notextile. <txp::media_file filename="textpattern-x.y.z.zip" sha256="a868c05fc37108f2bb5e878cfbcdc61a82ce2646c4676cccb8105a6c6277be7a" />
-<txp::media_file filename="textpattern-x.y.z.tar.gz" sha256="77b12daf91a9a2762f9df7b410c43d05e7ab7a12e32614f534f49b910b3ec303" />
+notextile. <txp::media_file filename="textpattern-x.y.z.zip" sha256="hash-here" />
+<txp::media_file filename="textpattern-x.y.z.tar.gz" sha256="hash-here" />
 ```
 
 ### Step 17
