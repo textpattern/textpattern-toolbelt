@@ -63,10 +63,10 @@ rm textpattern-$VER/README.md
 rm -rf textpattern-$VER/.github
 
 # Bundle up.
-tar cvf - -C $DESTDIR textpattern-$VER | gzip -c > textpattern-$VER.tar.gz
+tar cvf - -C $DESTDIR textpattern-$VER | gzip -c9 > textpattern-$VER.tar.gz
 shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM
 
-zip --symlinks -r textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
+zip --symlinks -r -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
 shasum -a 256 textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM
 
 cd $OLDDIR
