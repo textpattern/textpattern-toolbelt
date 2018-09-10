@@ -4,7 +4,7 @@ A collection of tools which help to develop [Textpattern CMS](https://textpatter
 
 ## Contributing
 
-Please see the [Contributing documentation](https://docs.textpattern.io/development/contributing) for details on how to get involved with the project.
+Please see the [Contributing documentation](https://docs.textpattern.com/development/contributing) for details on how to get involved with the project.
 
 ## Legal
 
