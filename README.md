@@ -152,7 +152,7 @@ notextile. <txp::media_file filename="textpattern-x.y.z.zip" sha256="hash-here" 
 <txp::media_file filename="textpattern-x.y.z.tar.gz" sha256="hash-here" />
 ```
 
-### Step 16
+### Step 17
 
 Update the archive checksums in the 'Get started' article.
 
