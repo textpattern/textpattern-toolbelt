@@ -38,6 +38,7 @@ $event = '';
 $prefs['enable_xmlrpc_server'] = true;
 require_once(txpath.'/lib/constants.php');
 require_once(txpath.'/lib/txplib_misc.php');
+require_once(txpath.'/lib/txplib_admin.php');
 $files = array();
 $destination = txpath.DS.'checksums.txt';
 
