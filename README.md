@@ -86,7 +86,8 @@ Copy the entire bundle to a local directory and test. Things to look for:
 6. The High Diagnostics panel reports everything correctly.
 7. Public tags provide expected output.
 8. Runs on as many versions of PHP, MySQL (or off-brand equivalents), Apache, Nginx.
-9. Left over files that need deleting.
+9. Interface UI strings are all assigned English labels.
+10. Left over files that need deleting.
 
 Fix anything that doesn't work, and commit changes to the `release-x.y.z` branch. Run checksums again if required and commit with message such as `This is x.y.z`.
 
