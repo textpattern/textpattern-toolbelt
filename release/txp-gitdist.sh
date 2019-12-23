@@ -49,7 +49,6 @@ cd $DESTDIR
 # Tidy and remove development helper files.
 rm textpattern-$VER.tar.gz
 rm textpattern-$VER.zip
-find . -name '.DS_Store' -type f -delete
 rm textpattern-$VER/composer.json
 rm textpattern-$VER/package.json
 rm textpattern-$VER/.gitattributes
@@ -61,6 +60,7 @@ rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
 rm textpattern-$VER/README.md
 rm -rf textpattern-$VER/.github
+find . -name '.DS_Store' -type f -delete
 
 # Bundle up.
 tar cvf - -C $DESTDIR textpattern-$VER | gzip -c9 > textpattern-$VER.tar.gz
