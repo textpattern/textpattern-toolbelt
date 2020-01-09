@@ -31,7 +31,7 @@ git checkout -b release-x.y.z dev
 
 ### Step 2
 
-Update HISTORY.txt and write an announcement for the blog, forum, and the mailinglist txp-announce@ (don't post yet).
+Update HISTORY.txt and write an announcement for the blog and forum.
 
 ### Step 3
 
@@ -204,7 +204,7 @@ git push origin —-delete release-x.y.z
 
 ### Step 24
 
-Post announcements to forum / twitter / relevant social media.
+Post announcements to blog / forum / twitter / relevant social media.
 
 ### Step 25
 
