@@ -36,10 +36,10 @@ Update HISTORY.txt and write an announcement for the blog and forum.
 ### Step 3
 
 Update version numbers in:
-* `README.txt`
-* `README.md` (if possible: might need to be done after if the file download links have yet to be created)
-* The `version` pref val in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
-* The `textpattern.version` value in `textpattern.js`.
+* README.txt.
+* README.md (if possible: might need to be done afterwards, if the file download links have yet to be created).
+* The `version` pref val in textpattern/vendors/Textpattern/DB/Data/core.prefs.
+* The `textpattern.version` value in textpattern.js.
 * Theme manifests.
 
 ### Step 4
@@ -48,7 +48,7 @@ Check for files containing Windows line-endings (`\r\n`) and convert those to Un
 
 ### Step 5
 
-Because upgrade scripts don't run on new installs, make sure the contents of the `setup` directory is completely in sync with all that's done in the /update scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added by hand.
+Because upgrade scripts don't run on new installs, make sure the contents of the /setup directory is completely in sync with all that's done in the /update scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added by hand.
 
 ### Step 6
 
@@ -56,7 +56,7 @@ Commit all changes with commit message such as `HISTORY and version numbers for 
 
 ### Step 7
 
-Edit `/textpattern/index.php` to bump main version number.
+Edit /textpattern/index.php to bump main version number.
 
 **Most importantly:**
 
@@ -171,7 +171,7 @@ git checkout release-x.y.z
 
 ### Step 20
 
-Edit `/textpattern/index.php` to bump version number to next release. Ensure it has `-dev` suffix.
+Edit /textpattern/index.php and /textpattern/textpattern.js to bump version number to next release. Ensure it has `-dev` suffix.
 If this release is a beta, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
 ### Step 21
