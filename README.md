@@ -141,6 +141,8 @@ Current beta release (Gzip format)
 ```
 
 Make sure the `Title` and `Description` fields are filled out correctly (see previous files for examples of this).
+`Title` holds the release version number.
+`Description` houses the SHA256 token.
 
 ### Step 15
 
@@ -151,8 +153,8 @@ Remove the category assignment from previous uploads of a beta / stable releases
 When writing the corresponding article, use the shortcode as follows:
 
 ```html
-notextile. <txp::media_file filename="textpattern-x.y.z.zip" sha256="hash-here" />
-<txp::media_file filename="textpattern-x.y.z.tar.gz" sha256="hash-here" />
+notextile. <txp::media_file filename="textpattern-x.y.z.zip" />
+<txp::media_file filename="textpattern-x.y.z.tar.gz" />
 ```
 
 ### Step 17
