@@ -50,6 +50,8 @@ Check for files containing Windows line-endings (`\r\n`) and convert those to Un
 
 Because upgrade scripts don't run on new installs, make sure the contents of the /setup directory is completely in sync with all that's done in the /update scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added by hand.
 
+Also verify that multi-site files such as .htaccess, .htaccess-dist and css.php are up-to-date with their root counterparts.
+
 ### Step 6
 
 Commit all changes with commit message such as `HISTORY and version numbers for x.y.z`.
