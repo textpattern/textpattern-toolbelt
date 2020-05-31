@@ -159,13 +159,9 @@ notextile. <txp::media_file filename="textpattern-x.y.z.zip" />
 
 ### Step 17
 
-Update the archive checksums in the 'Get started' article.
-
-### Step 18
-
 Add a section to the 'Get started' article when a beta is available (remove it from here at the end of the beta cycle but leave it in its dedicated article for posterity).
 
-### Step 19
+### Step 18
 
 Prepare for ongoing development:
 
@@ -173,16 +169,16 @@ Prepare for ongoing development:
 git checkout release-x.y.z
 ```
 
-### Step 20
+### Step 19
 
 Edit /textpattern/index.php and /textpattern/textpattern.js to bump version number to next release. Ensure it has `-dev` suffix.
 If this release is a beta, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
-### Step 21
+### Step 20
 
 Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied.
 
-### Step 22
+### Step 21
 
 Merge release to dev so any changes in the release are recorded:
 
@@ -192,7 +188,7 @@ git merge release-x.y.z
 git push
 ```
 
-### Step 23
+### Step 22
 
 Delete release branch as it has served its purpose.
 
@@ -206,14 +202,14 @@ You might have to use `-D` switch if the branch deletion complains it's 'unmerge
 git push origin —-delete release-x.y.z
 ```
 
-### Step 24
+### Step 23
 
 Post announcements to blog / forum / twitter / relevant social media.
 
-### Step 25
+### Step 24
 
 Search through all textpattern.com articles to update any outdated version numbers (in case articles were written in advance or features got moved between versions, or reference the download itself).
 
-### Step 26
+### Step 25
 
 Light cigar and wait for the fallout. Sleep.
