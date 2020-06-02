@@ -172,8 +172,11 @@ git checkout release-x.y.z
 
 ### Step 19
 
-Edit /textpattern/index.php and /textpattern/textpattern.js to bump version number to next release. Ensure it has `-dev` suffix.
-If this release is a beta, it's okay to revert the version number to the same `x.y.z-dev` it was before.
+Edit the following files to bump version number to next release. Ensure they have `-dev` suffix. If this release is a beta, it's okay to revert the version number to the same `x.y.z-dev` it was before.
+
+* /textpattern/index.php
+* /textpattern/textpattern.js
+* package.json
 
 ### Step 20
 
