@@ -18,12 +18,13 @@ When it comes time to bundle up a development version for release, the following
 
 * Semantic versioning is adopted with major.minor.patch standards.
 * Development code is suffixed `-dev`.
-* Beta code is suffixed `-beta`, `-beta.2`, `-beta.3`, ...
+* Beta releases are suffixed `-beta`, `-beta.2`, `-beta.3`, ...
+* Release candidates are suffixed `-rc1`, `-rc2`, `-rc3`, ...
 * Any reference to `x.y.z` below refers to the version number and may be suffixed as mentioned.
 
 ### Step 1
 
-From the dev branch, create a `release-x.y.z` branch for the new version:
+From the `dev` branch, create a `release-x.y.z` branch for the new version:
 
 ```
 git checkout -b release-x.y.z dev
@@ -31,7 +32,7 @@ git checkout -b release-x.y.z dev
 
 ### Step 2
 
-Update HISTORY.txt and write an announcement for the blog and forum.
+Update `HISTORY.txt` and write an announcement for the blog and forum.
 
 ### Step 3
 
@@ -39,19 +40,19 @@ Update version numbers in:
 * README.txt.
 * package.json.
 * README.md (if possible: might need to be done afterwards, if the file download links have yet to be created).
-* The `version` pref val in textpattern/vendors/Textpattern/DB/Data/core.prefs.
-* The `textpattern.version` value in textpattern.js.
+* The `version` pref val in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
+* The `textpattern.version` `value in textpattern.js`.
 * Theme manifests.
 
 ### Step 4
 
-Check for files containing Windows line-endings (`\r\n`) and convert those to Unix-style. Prevents false 'modified files' alarms for uploads done in FTP ASCII mode.
+Check for files containing Windows line-endings (`\r\n`) and convert those to Unix-style. This prevents false 'modified files' alarms for uploads done in FTP ASCII mode.
 
 ### Step 5
 
-Because upgrade scripts don't run on new installs, make sure the contents of the /setup directory is completely in sync with all that's done in the /update scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added by hand.
+Because upgrade scripts don't run on new installs, make sure the contents of the `/setup` directory is completely in sync with all that's done in the `/update` scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added by hand.
 
-Also verify that multi-site files such as .htaccess, .htaccess-dist and css.php are up-to-date with their root counterparts.
+Also verify that multi-site files such as `.htaccess`, `.htaccess-dist` and `css.php` are up-to-date with their root counterparts.
 
 ### Step 6
 
@@ -59,7 +60,7 @@ Commit all changes with commit message such as `HISTORY and version numbers for 
 
 ### Step 7
 
-Edit /textpattern/index.php to bump main version number.
+Edit `/textpattern/index.php` to bump main version number.
 
 **Most importantly:**
 
@@ -70,7 +71,7 @@ Beta | Leave `$txp_is_dev` at `true`, then commit.
 
 ### Step 8
 
-Run `checksums.php` from textpattern-toolbelt:
+Run `checksums.php` from `textpattern-toolbelt`:
 
 ```php
 php /path/to/textpattern-toolbelt/release/checksums.php /path/to/dev/textpattern rebuild
@@ -106,7 +107,7 @@ git push
 
 ### Step 11
 
-Run build script. It will build two package files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
+Run build script. It will build two package files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
 
 ```bash
 cd /path/to/repo
@@ -115,16 +116,16 @@ cd /path/to/repo
 
 ### Step 12
 
-Verify packages have been built correctly. Unzip them to check. SHA256 checksums are automatically built for the download package(s).
+Verify packages have been built correctly. Decompress them to check.
 
 ### Step 13
 
 Prepare a release for version x.y.z on GitHub:
-* Set the tag to just the vanilla version number `x.y.z` along with any required `-beta` suffix.
+* Set the tag to just the vanilla version number `x.y.z` along with any required `-beta` or `-rc` suffix.
 * Ensure the target select box is `master`.
 * Use the same tag name for the release Title, but prefix it with a lower case `v`.
 * Attach packages and SHA256 checksums.
-* If it's a beta, ensure the `Pre-release` checkbox is set.
+* If it's a beta or release candidate, ensure the `Pre-release` checkbox is set.
 
 Use `git pull` to bring the new tag down to your local repo's `master` branch.
 
@@ -172,11 +173,11 @@ git checkout release-x.y.z
 
 ### Step 19
 
-Edit the following files to bump version number to next release. Ensure they have `-dev` suffix. If this release is a beta, it's okay to revert the version number to the same `x.y.z-dev` it was before.
+Edit the following files to bump version number to next release. Ensure they have `-dev` suffix. If this release is a beta or release candidate, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
-* /textpattern/index.php
-* /textpattern/textpattern.js
-* package.json
+* `/textpattern/index.php`
+* `/textpattern/textpattern.js`
+* `package.json`
 
 ### Step 20
 
@@ -184,7 +185,7 @@ Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to e
 
 ### Step 21
 
-Merge release to dev so any changes in the release are recorded:
+Merge release to `dev` so any changes in the release are recorded:
 
 ```bash
 git checkout dev
@@ -200,7 +201,7 @@ Delete release branch as it has served its purpose.
 git branch -d release-x.y.z
 ```
 
-You might have to use `-D` switch if the branch deletion complains it's 'unmerged': that's because we just modified it ready for returning to dev. It depends if the release branch was pushed to the central repo or not. If so:
+You might have to use `-D` switch if the branch deletion complains it's 'unmerged': that's because we just modified it ready for returning to `dev`. It depends if the release branch was pushed to the central repo or not. If so:
 
 ```bash
 git push origin —-delete release-x.y.z
