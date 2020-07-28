@@ -24,10 +24,11 @@ When it comes time to bundle up a development version for release, the following
 
 ### Step 1
 
-From the `dev` branch, create a `release-x.y.z` branch for the new version:
+Hop to the branch from which you wish to make a release, and create a `release-x.y.z` branch for the new version:
 
 ```
-git checkout -b release-x.y.z dev
+git checkout dev
+git checkout -b release-x.y.z
 ```
 
 ### Step 2
