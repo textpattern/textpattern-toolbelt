@@ -40,8 +40,14 @@ Add link to Latest Happenings thread.
 
 ### Twitter
 
-Exude just the right amount of smugness and understatedness.
+Deploy just the right amount of understated smugness.
 
 ### Hacker News
 
 Do not use 'Show HN:' or 'Tell HN:', just use the blog post URL and the associated title.
+
+## Wikipedia
+
+https://en.wikipedia.org/wiki/Textpattern
+
+Bump version number and release date.
