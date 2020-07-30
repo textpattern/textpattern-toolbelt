@@ -36,6 +36,12 @@ Thank you!
 
 Add link to Latest Happenings thread.
 
-## Twitter
+## Socials
+
+### Twitter
 
 Exude just the right amount of smugness and understatedness.
+
+### Hacker News
+
+Do not use 'Show HN:' or 'Tell HN:', just use the blog post URL and the associated title.
