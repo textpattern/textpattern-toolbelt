@@ -1,14 +1,12 @@
 # Announcements
 
-[WIP]
-
 ## Preflight
 
-* update demo site
+Update demo site scaffold since blog post mentions it.
 
 ## Blog post on .com
 
-* leave a space for a link to forum discussion.
+Compose and publish a blog post for .com, template to follow.
 
 ## Forum, Latest Happenings
 
@@ -34,10 +32,10 @@ If you wish to play in a pre-built environment, then please "spin up the demo":h
 Thank you!
 ```
 
-## Update .com 
+## Update .com blog post
 
-* add link to Latest Happenings thread.
+Add link to Latest Happenings thread.
 
 ## Twitter
 
-* exude just the right amount of smugness and understatedness.
+Exude just the right amount of smugness and understatedness.
