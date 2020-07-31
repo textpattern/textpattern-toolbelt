@@ -33,7 +33,7 @@ git checkout -b release-x.y.z
 
 ### Step 2
 
-Update `HISTORY.txt` and write an announcement for the blog and forum.
+Update `HISTORY.txt` with final release notes, tag release with date stamp.
 
 ### Step 3
 
