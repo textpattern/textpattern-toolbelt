@@ -8,7 +8,7 @@ Please see the [Contributing documentation](https://docs.textpattern.com/develop
 
 ## Legal
 
-Licensed under the [GPLv2 license](https://github.com/textpattern/textpattern/blob/master/LICENSE.txt).
+Licensed under the [GPLv2 license](https://github.com/textpattern/textpattern/blob/main/LICENSE.txt).
 
 ## Textpattern release build process
 
@@ -98,10 +98,10 @@ Fix anything that doesn't work, and commit changes to the `release-x.y.z` branch
 
 ### Step 10
 
-Merge to master:
+Merge to `main`:
 
 ```bash
-git checkout master
+git checkout main
 git merge release-x.y.z
 git push
 ```
@@ -123,12 +123,12 @@ Verify packages have been built correctly. Decompress them to check.
 
 Prepare a release for version x.y.z on GitHub:
 * Set the tag to just the vanilla version number `x.y.z` along with any required `-beta` or `-rc` suffix.
-* Ensure the target select box is `master`.
+* Ensure the target select box is `main`.
 * Use the same tag name for the release Title, but prefix it with a lower case `v`.
 * Attach packages and SHA256 checksums.
 * If it's a beta or release candidate, ensure the `Pre-release` checkbox is set.
 
-Use `git pull` to bring the new tag down to your local repo's `master` branch.
+Use `git pull` to bring the new tag down to your local repo's `main` branch.
 
 ### Step 14
 
