@@ -164,6 +164,8 @@ notextile. <txp::media_file filename="textpattern-x.y.z.zip" />
 
 Add a section to the 'Get started' article when a beta is available (remove it from here at the end of the beta cycle but leave it in its dedicated article for posterity).
 
+Update the release notes link in 'Get started with Textpattern' to point to the announcement blog post.
+
 ### Step 18
 
 Prepare for ongoing development:
