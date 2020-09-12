@@ -22,11 +22,20 @@ When it comes time to bundle up a development version for release, the following
 * Release candidates are suffixed `-rc1`, `-rc2`, `-rc3`, ...
 * Any reference to `x.y.z` below refers to the version number and may be suffixed as mentioned.
 
-### Step 1
+### Step 0: Ensure everything is up-to-date
+
+On your local repo, ensure _all_ branches - main, dev, and feature branches - are up-to-date by doing this for each one:
+
+```bash
+git checkout <branch-name>
+git pull
+```
+
+### Step 1: Create release branch based on feature branch
 
 Hop to the branch from which you wish to make a release, and create a `release-x.y.z` branch for the new version:
 
-```
+```bash
 git checkout dev
 OR
 git checkout x.y.z (if a feature branch)
@@ -34,11 +43,11 @@ THEN
 git checkout -b release-x.y.z
 ```
 
-### Step 2
+### Step 2: Update history
 
 Update `HISTORY.txt` with final release notes, tag release with date stamp.
 
-### Step 3
+### Step 3: Set version numbers for all but textpattern/index.php
 
 Update version numbers in:
 * `README.txt`
@@ -48,21 +57,21 @@ Update version numbers in:
 * The `textpattern.version` `value in textpattern.js`.
 * Theme manifests.
 
-### Step 4
+### Step 4: Ensure Unix line endings
 
 Check for files containing Windows line-endings (`\r\n`) and convert those to Unix-style. This prevents false 'modified files' alarms for uploads done in FTP ASCII mode.
 
-### Step 5
+### Step 5: Verify setup/update scripts match
 
 Because upgrade scripts don't run on new installs, make sure the contents of the `/setup` directory is completely in sync with all that's done in the `/update` scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added by hand.
 
 Also verify that multi-site files such as `.htaccess`, `.htaccess-dist` and `css.php` are up-to-date with their root counterparts.
 
-### Step 6
+### Step 6: Commit history and versions
 
 Commit all changes with commit message such as `HISTORY and version numbers for x.y.z`.
 
-### Step 7
+### Step 7: Bump official version
 
 Edit `/textpattern/index.php` to bump main version number.
 
@@ -73,7 +82,7 @@ Release type | Note
 Stable | Set `$txp_is_dev` to `false`, then commit.
 Beta | Leave `$txp_is_dev` at `true`, then commit.
 
-### Step 8
+### Step 8: Update checksums
 
 Run `checksums.php` from `textpattern-toolbelt`:
 
@@ -86,7 +95,7 @@ Optionally commit with message such as `Checksums for x.y.z`. You may wish to sk
 * If there are no issues from the next step, there will be no files with changes upon which to hang the 'this is x.y.z' commit, so you may wish to defer (or skip) committing until after testing.
 * If you do find issues, you can commit the current state including checksums, fix/test/commit with atomic commits as usual, then rerun checksums and commit as a final 'this is...', as mentioned in the next step. 
 
-### Step 9
+### Step 9: Test!
 
 Copy the entire bundle to a local directory and test. Things to look for:
 
@@ -103,7 +112,7 @@ Copy the entire bundle to a local directory and test. Things to look for:
 
 Fix anything that doesn't work, and commit changes to the `release-x.y.z` branch. Run checksums again if required and commit with message such as `This is x.y.z`.
 
-### Step 10
+### Step 10: Merge to the main repo
 
 Merge to `main`:
 
@@ -113,7 +122,7 @@ git merge release-x.y.z
 git push
 ```
 
-### Step 11
+### Step 11: Build the zip/tar.gz bundles
 
 Run build script. It will build two package files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
 
@@ -122,11 +131,11 @@ cd /path/to/repo
 /path/to/textpattern-toolbelt/release/txp-gitdist.sh x.y.z
 ```
 
-### Step 12
+### Step 12: Verify bundles
 
 Verify packages have been built correctly. Decompress them to check.
 
-### Step 13
+### Step 13: Build release on GitHub
 
 Prepare a release for version x.y.z on GitHub:
 * Set the tag to just the vanilla version number `x.y.z` along with any required `-beta` or `-rc` suffix.
@@ -137,7 +146,7 @@ Prepare a release for version x.y.z on GitHub:
 
 Use `git pull` to bring the new tag down to your local repo's `main` branch.
 
-### Step 14
+### Step 14: Add bundles to textpattern.com
 
 Upload packages to textpattern.com website. Ensure they comply with the semantic filename versioning rules.
 
@@ -154,11 +163,11 @@ Make sure the `Title` and `Description` fields are filled out correctly (see pre
 `Title` holds the release version number.
 `Description` houses the SHA256 token.
 
-### Step 15
+### Step 15: Adjust bundle category assignment
 
 Remove the category assignment from previous uploads of a beta / stable releases. Note you can have a stable release and a beta release at the same time, but it's good housekeeping to remove old categories from previous releases. Everything is built automatically based on these category assignments.
 
-### Step 16
+### Step 16: Finalise the release blog article
 
 When writing the corresponding article, use the shortcode as follows:
 
@@ -167,13 +176,13 @@ notextile. <txp::media_file filename="textpattern-x.y.z.zip" />
 <txp::media_file filename="textpattern-x.y.z.tar.gz" />
 ```
 
-### Step 17
+### Step 17: Update 'getting started' information
 
 Add a section to the 'Get started' article when a beta is available (remove it from here at the end of the beta cycle but leave it in its dedicated article for posterity).
 
 Update the release notes link in 'Get started with Textpattern' to point to the announcement blog post.
 
-### Step 18
+### Step 18: Prepare for next version
 
 Prepare for ongoing development:
 
@@ -181,7 +190,7 @@ Prepare for ongoing development:
 git checkout release-x.y.z
 ```
 
-### Step 19
+### Step 19: Set version numbers for next version
 
 Edit the following files to bump version number to next release. Ensure they have `-dev` suffix. If this release is a beta or release candidate, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
@@ -189,11 +198,11 @@ Edit the following files to bump version number to next release. Ensure they hav
 * `/textpattern/textpattern.js`
 * `package.json`
 
-### Step 20
+### Step 20: Set 'dev' and commit next version
 
 Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied.
 
-### Step 21
+### Step 21: Merge release back into dev
 
 Merge release to `dev` so any changes in the release are recorded:
 
@@ -203,7 +212,7 @@ git merge release-x.y.z
 git push
 ```
 
-### Step 22
+### Step 22: Tidy up branches
 
 Delete release branch as it has served its purpose.
 
@@ -211,20 +220,27 @@ Delete release branch as it has served its purpose.
 git branch -d release-x.y.z
 ```
 
-You might have to use `-D` switch if the branch deletion complains it's 'unmerged': that's because we just modified it ready for returning to `dev`. It depends if the release branch was pushed to the central repo or not. If so:
+You might have to use `-D` switch if the branch deletion complains it's 'unmerged': that's because we just modified it ready for returning to `dev`. It depends if the release branch was mistakenly pushed to the central repo or not. If so:
 
 ```bash
-git push origin —-delete release-x.y.z
+git push origin --delete release-x.y.z
 ```
 
-### Step 23
+If you've just released a feature branch (i.e. patch, not minor/major dev release) then there'll be the old x.y.z branch on your local and remote servers. Once you're absolutely sure that the merge back to dev from release-x.y.z has completed and pushed to the server successfully, you can remove your local and remote x.y.z branches:
+
+```bash
+git branch -d x.y.z
+git push origin --delete x.y.z
+```
+
+### Step 23: Tell everyone
 
 Post announcements to blog / forum / twitter / relevant social media.
 
-### Step 24
+### Step 24: Update links to latest version in docs, etc
 
 Search through all textpattern.com articles to update any outdated version numbers (in case articles were written in advance or features got moved between versions, or reference the download itself).
 
-### Step 25
+### Step 25: Relax
 
 Light cigar and wait for the fallout. Sleep.
