@@ -25,10 +25,11 @@ To prepare a development version of Textpattern for stable (production) release,
 ### Preflight requirements
 
 * local instance of PHP
+* know the intended next release version for resetting the repo after launch
 
 ### Step 0: Ensure everything is up-to-date
 
-On GitHub, update `HISTORY.txt` with final added/changed/fixed release note information (but not the release date just yet) and merge to other branch(es) where appropriate.
+On GitHub, update `HISTORY.txt` with final added / changed / fixed release note information (but not the release date just yet) and merge to other branch(es) where appropriate.
 
 On your local repo, ensure _all_ branches (i.e. `main`, `dev`, and any feature branches) - are up-to-date by doing this for each one:
 
@@ -109,7 +110,7 @@ php /path/to/textpattern-toolbelt/release/checksums.php /path/to/dev/textpattern
 Optionally commit with message such as `Checksums for x.y.z`. You may wish to skip this commit if you're confident there are going to be no issues with the release. This is because:
 
 * If there are no issues from the next step, there will be no files with changes upon which to hang the 'this is x.y.z' commit, so you may wish to defer (or skip) committing until after testing.
-* If you do find issues, you can commit the current state including checksums, fix/test/commit with atomic commits as usual, then rerun checksums and commit as a final 'this is...', as mentioned in the next step. 
+* If you do find issues, you can commit the current state including checksums, fix / test / commit with atomic commits as usual, then rerun checksums and commit as a final 'This is x.y.z', as mentioned in the next step. 
 
 ### Step 9: Test!
 
@@ -122,7 +123,7 @@ Copy the entire bundle to a local directory and test. Things to look for:
 5. Version numbers are reported correctly throughout.
 6. The High Diagnostics panel reports everything correctly.
 7. Public tags provide expected output.
-8. Runs on as many versions of PHP, MySQL (or off-brand equivalents), Apache, Nginx.
+8. Runs on as many versions of PHP, MySQL (and own-brand equivalents), Apache, Nginx.
 9. Interface UI strings are all assigned English labels.
 10. Left over files that need deleting.
 
@@ -138,33 +139,33 @@ git merge release-x.y.z
 git push
 ```
 
-### Step 11: Build the zip/tar.gz bundles
+### Step 11: Build the archives
 
-Run build script. It will build two package files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
+Run the build script. It will build two packaged archive files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
 
 ```bash
 cd /path/to/repo
 /path/to/textpattern-toolbelt/release/txp-gitdist.sh x.y.z
 ```
 
-### Step 12: Verify bundles
+### Step 12: Verify archives
 
-Verify packages have been built correctly. Decompress them to check.
+Verify archives have been built correctly. Decompress them to check.
 
 ### Step 13: Build release on GitHub
 
-Prepare a release for version x.y.z on GitHub:
+Prepare a release for version `x.y.z` on GitHub:
 * Set the tag to just the vanilla version number `x.y.z` along with any required `-beta` or `-rc` suffix.
 * Ensure the target select box is `main`.
 * Use the same tag name for the release Title, but prefix it with a lower case `v`.
-* Attach packages and SHA256 checksums.
+* Attach archives and SHA256 checksums.
 * If it's a beta or release candidate, ensure the `Pre-release` checkbox is set.
 
 Use `git pull` to bring the new tag down to your local repo's `main` branch.
 
-### Step 14: Add bundles to textpattern.com
+### Step 14: Add archives to textpattern.com
 
-Upload packages to textpattern.com website. Ensure they comply with the semantic filename versioning rules.
+Upload archives to textpattern.com website. Ensure they comply with the semantic filename versioning rules.
 
 For each uploaded file, select the appropriate file category:
 
@@ -179,7 +180,7 @@ Make sure the `Title` and `Description` fields are filled out correctly (see pre
 `Title` holds the release version number.
 `Description` houses the SHA256 token.
 
-### Step 15: Adjust bundle category assignment
+### Step 15: Adjust archive category assignment
 
 Remove the category assignment from previous uploads of a beta / stable releases. Note you can have a stable release and a beta release at the same time, but it's good housekeeping to remove old categories from previous releases. Everything is built automatically based on these category assignments.
 
@@ -192,7 +193,7 @@ notextile. <txp::media_file filename="textpattern-x.y.z.zip" />
 <txp::media_file filename="textpattern-x.y.z.tar.gz" />
 ```
 
-### Step 17: Update 'getting started' information
+### Step 17: Update orientation information
 
 Add a section to the 'Get started' article when a beta is available (remove it from here at the end of the beta cycle but leave it in its dedicated article for posterity).
 
@@ -208,15 +209,15 @@ git checkout release-x.y.z
 
 ### Step 19: Set version numbers for next version
 
-Edit the following files to bump version number to next release. Ensure they have `-dev` suffix. If this release is a beta or release candidate, it's okay to revert the version number to the same `x.y.z-dev` it was before.
+Edit the following files to bump version number to next intended release. Ensure they have `-dev` suffix. If this release is a beta or release candidate, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
 * `/textpattern/index.php`
 * `/textpattern/textpattern.js`
 * `package.json`
 
-### Step 20: Set 'dev' and commit next version
+### Step 20: Set `dev` and commit next version
 
-Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied, using a suitable commit message such as 'Back to dev'.
+Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied, using a suitable commit message of the format 'Back to dev'.
 
 ### Step 21: Merge release back into dev
 
@@ -242,7 +243,7 @@ You might have to use `-D` switch if the branch deletion complains it's 'unmerge
 git push origin --delete release-x.y.z
 ```
 
-If you've just released a feature branch (i.e. patch, not minor/major dev release) then there'll be the old x.y.z branch on your local and remote servers. Once you're absolutely sure that the merge back to dev from release-x.y.z has completed and pushed to the server successfully, you can remove your local and remote x.y.z branches:
+If you've just released a feature branch (i.e. patch, not minor/major dev release) then there'll be the old `x.y.z` branch on your local and remote servers. Once you're absolutely sure that the merge back to dev from `release-x.y.z` has completed and pushed to the server successfully, you can remove your local and remote `x.y.z` branches:
 
 ```bash
 git branch -d x.y.z
@@ -251,12 +252,12 @@ git push origin --delete x.y.z
 
 ### Step 23: Tell everyone
 
-Post announcements to blog / forum / twitter / relevant social media.
+Post announcements and gratitude to blog / forum / Twitter / relevant social media.
 
 ### Step 24: Update links to latest version in docs, etc
 
-Search through all textpattern.com articles to update any outdated version numbers (in case articles were written in advance or features got moved between versions, or reference the download itself).
+Search through all `textpattern.com` articles to update any outdated version numbers (in case articles were written in advance or features got moved between versions, or reference the download itself).
 
 ### Step 25: Relax
 
-Light cigar and wait for the fallout. Sleep.
+Light cigar, pour brandy and wait for the fallout. Sleep if appropriate.
