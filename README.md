@@ -208,7 +208,7 @@ Edit the following files to bump version number to next release. Ensure they hav
 
 ### Step 20: Set 'dev' and commit next version
 
-Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied.
+Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied, using a suitable commit message such as 'Back to dev'.
 
 ### Step 21: Merge release back into dev
 
