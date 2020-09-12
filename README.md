@@ -12,7 +12,7 @@ Licensed under the [GPLv2 license](https://github.com/textpattern/textpattern/bl
 
 ## Textpattern release build process
 
-To prepare a development version of Textpattern for production release, this process should be followed to ensure smooth continued development.
+To prepare a development version of Textpattern for stable (production) release, this process should be followed to ensure smooth continued development.
 
 #### Notes
 
@@ -24,7 +24,7 @@ To prepare a development version of Textpattern for production release, this pro
 
 ### Step 0: Ensure everything is up-to-date
 
-On GitHub, update `HISTORY.txt` with final added/changed/fixed release note information (but not the release date just yet) and merge branch(es) where appropriate.
+On GitHub, update `HISTORY.txt` with final added/changed/fixed release note information (but not the release date just yet) and merge to other branch(es) where appropriate.
 
 On your local repo, ensure _all_ branches (i.e. `main`, `dev`, and any feature branches) - are up-to-date by doing this for each one:
 
@@ -81,7 +81,7 @@ Also verify that multi-site files such as `.htaccess`, `.htaccess-dist` and `css
 
 ### Step 6: Commit history and versions
 
-Commit all changes with commit message such as `HISTORY and version numbers for x.y.z`.
+Commit all changes with commit message of the format `HISTORY and version numbers for x.y.z`.
 
 ### Step 7: Bump official version
 
