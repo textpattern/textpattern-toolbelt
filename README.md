@@ -24,7 +24,7 @@ To prepare a development version of Textpattern for production release, this pro
 
 ### Step 0: Ensure everything is up-to-date
 
-On your local repo, ensure _all_ branches - main, dev, and feature branches - are up-to-date by doing this for each one:
+On your local repo, ensure _all_ branches (i.e. `main`, `dev`, and any feature branches) - are up-to-date by doing this for each one:
 
 ```bash
 git checkout branch-name
