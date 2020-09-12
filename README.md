@@ -65,7 +65,9 @@ Update version numbers in:
 * `README.md` (if possible: might need to be done afterwards, if the file download links have yet to be created).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern.js`.
-* Theme manifests.
+* Theme manifests:
+  * `/textpattern/setup/themes/four-point-eight/manifest.json`
+  * `/textpattern/setup/themes/zero/manifest.json`
 
 ### Step 4: Ensure Unix line endings
 
