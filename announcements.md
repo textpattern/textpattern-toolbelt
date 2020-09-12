@@ -42,6 +42,8 @@ Add link to Latest Happenings thread.
 
 Deploy just the right amount of understated smugness.
 
+Follow-up tweet to thank our amazing sponsors: all GitHub monthly sponsors, DigitalOcean, BrowserStack, and 1Password.
+
 ### Hacker News
 
 Do not use 'Show HN:' or 'Tell HN:', just use the blog post URL and the associated title.
