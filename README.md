@@ -27,7 +27,7 @@ When it comes time to bundle up a development version for release, the following
 On your local repo, ensure _all_ branches - main, dev, and feature branches - are up-to-date by doing this for each one:
 
 ```bash
-git checkout <branch-name>
+git checkout branch-name
 git pull
 ```
 
