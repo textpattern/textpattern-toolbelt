@@ -55,7 +55,7 @@ git checkout -b release-x.y.z
 
 Update `HISTORY.txt` with final release notes, tag release with date stamp.
 
-### Step 3: Set version numbers for all but textpattern/index.php
+### Step 3: Set version numbers for all but `textpattern/index.php`
 
 Update version numbers in:
 * `README.txt`
