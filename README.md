@@ -12,7 +12,7 @@ Licensed under the [GPLv2 license](https://github.com/textpattern/textpattern/bl
 
 ## Textpattern release build process
 
-When it comes time to bundle up a development version for release, the following process should be followed to ensure smooth continued development.
+To bundle up a development version of Textpattern for general release, the following process should be followed to ensure smooth continued development.
 
 #### Notes
 
