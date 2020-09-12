@@ -42,9 +42,9 @@ Add link to Latest Happenings thread.
 
 Deploy just the right amount of understated smugness.
 
-Thank you tweet to all our GitHub monthly sponsors.
+Thank you tweet to all our amazing GitHub monthly sponsors.
 
-Follow-up tweet to thank our amazing sponsors: DigitalOcean, BrowserStack, and 1Password.
+Follow-up tweet to thank our platform and tooling sponsors: DigitalOcean, BrowserStack, and 1Password.
 
 ### Hacker News
 
