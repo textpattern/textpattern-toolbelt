@@ -222,7 +222,7 @@ git push
 
 ### Step 22: Tidy up branches
 
-Delete release branch as it has served its purpose.
+Delete release branch as it has served its purpose:
 
 ```bash
 git branch -d release-x.y.z
