@@ -55,7 +55,7 @@ git checkout -b release-x.y.z
 
 ### Step 2: Update history
 
-Update `HISTORY.txt` with final release notes, tag release with date stamp.
+Update `HISTORY.txt`: tag the release with date stamp.
 
 ### Step 3: Set version numbers for all but `textpattern/index.php`
 
@@ -63,7 +63,7 @@ Update version numbers in:
 * `README.txt`
 * `package.json`
 * `README.md` (if possible: might need to be done afterwards, if the file download links have yet to be created).
-* The `version` pref val in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
+* The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern.js`.
 * Theme manifests.
 
