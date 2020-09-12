@@ -36,13 +36,15 @@ Thank you!
 
 Add link to Latest Happenings thread.
 
-## Socials
+## Socials
 
 ### Twitter
 
 Deploy just the right amount of understated smugness.
 
-Follow-up tweet to thank our amazing sponsors: all GitHub monthly sponsors, DigitalOcean, BrowserStack, and 1Password.
+Thank you tweet to all our GitHub monthly sponsors.
+
+Follow-up tweet to thank our amazing sponsors: DigitalOcean, BrowserStack, and 1Password.
 
 ### Hacker News
 
