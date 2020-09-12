@@ -37,9 +37,17 @@ Hop to the branch from which you wish to make a release, and create a `release-x
 
 ```bash
 git checkout dev
-OR
+```
+
+_or_:
+
+```bash
 git checkout x.y.z (if a feature branch)
-THEN
+```
+
+_then_:
+
+```bash
 git checkout -b release-x.y.z
 ```
 
