@@ -24,6 +24,8 @@ To prepare a development version of Textpattern for production release, this pro
 
 ### Step 0: Ensure everything is up-to-date
 
+On GitHub, update `HISTORY.txt` with final added/changed/fixed release note information (but not the release date just yet) and merge branch(es) where appropriate.
+
 On your local repo, ensure _all_ branches (i.e. `main`, `dev`, and any feature branches) - are up-to-date by doing this for each one:
 
 ```bash
@@ -33,7 +35,7 @@ git pull
 
 ### Step 1: Create release branch based on feature branch
 
-Hop to the branch from which you wish to make a release, and create a `release-x.y.z` branch for the new version:
+Navigate to the branch from which you wish to make a release, and create a `release-x.y.z` branch for the new version:
 
 ```bash
 git checkout dev
@@ -45,7 +47,7 @@ _or_ (if a feature branch):
 git checkout x.y.z
 ```
 
-_then_:
+_then_ (for either of the above types):
 
 ```bash
 git checkout -b release-x.y.z
