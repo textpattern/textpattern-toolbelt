@@ -22,6 +22,10 @@ To prepare a development version of Textpattern for stable (production) release,
 * Release candidates are suffixed `-rc1`, `-rc2`, `-rc3`, ...
 * Any reference to `x.y.z` below refers to the version number and may be suffixed as mentioned.
 
+### Preflight requirements
+
+* local instance of PHP
+
 ### Step 0: Ensure everything is up-to-date
 
 On GitHub, update `HISTORY.txt` with final added/changed/fixed release note information (but not the release date just yet) and merge to other branch(es) where appropriate.
@@ -81,7 +85,7 @@ Also verify that multi-site files such as `.htaccess`, `.htaccess-dist` and `css
 
 ### Step 6: Commit history and versions
 
-Commit all changes with commit message of the format `HISTORY and version numbers for x.y.z`.
+Commit all changes with a commit message of the format `HISTORY and version numbers for x.y.z`.
 
 ### Step 7: Bump official version
 
