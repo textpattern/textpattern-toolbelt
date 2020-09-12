@@ -39,10 +39,10 @@ Hop to the branch from which you wish to make a release, and create a `release-x
 git checkout dev
 ```
 
-_or_:
+_or_ (if a feature branch):
 
 ```bash
-git checkout x.y.z (if a feature branch)
+git checkout x.y.z
 ```
 
 _then_:
