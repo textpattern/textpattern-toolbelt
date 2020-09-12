@@ -61,6 +61,7 @@ find . -name '.DS_Store' -type f -delete
 
 # Bundle up.
 tar tcvf - -C $DESTDIR textpattern-$VER | gzip -c9 > textpattern-$VER.tar.gz
+echo 'Testing .tar.gz integrity...'
 if gzip -t textpattern-$VER.tar.gz; then
     echo 'textpattern-$VER.tar.gz passed `gzip -t` integrity test.' \
     && shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM
