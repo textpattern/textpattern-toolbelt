@@ -41,13 +41,13 @@ Navigate to the branch from which you wish to make a release, and create a `rele
 git checkout dev
 ```
 
-_or_ (if a feature branch):
+_or_: (if a feature branch):
 
 ```bash
 git checkout x.y.z
 ```
 
-_then_ (for either of the above types):
+then: (for either of the above branch types):
 
 ```bash
 git checkout -b release-x.y.z
@@ -55,7 +55,7 @@ git checkout -b release-x.y.z
 
 ### Step 2: Update history
 
-Update `HISTORY.txt`: tag the release with date stamp.
+Update `HISTORY.txt` to tag the release with a date stamp.
 
 ### Step 3: Set version numbers for all but `textpattern/index.php`
 
