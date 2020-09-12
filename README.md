@@ -81,7 +81,7 @@ Run `checksums.php` from `textpattern-toolbelt`:
 php /path/to/textpattern-toolbelt/release/checksums.php /path/to/dev/textpattern rebuild
 ```
 
-Optionally commit with message such as `Checksums for x.y.z`. You may wish to skip this commit if you're confident there are going to be no issues with the release. This because:
+Optionally commit with message such as `Checksums for x.y.z`. You may wish to skip this commit if you're confident there are going to be no issues with the release. This is because:
 
 * If there are no issues from the next step, there will be no files with changes upon which to hang the 'this is x.y.z' commit, so you may wish to defer (or skip) committing until after testing.
 * If you do find issues, you can commit the current state including checksums, fix/test/commit with atomic commits as usual, then rerun checksums and commit as a final 'this is...', as mentioned in the next step. 
