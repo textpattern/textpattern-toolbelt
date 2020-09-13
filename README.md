@@ -71,8 +71,8 @@ Update version numbers in:
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 * Theme manifests:
-  * `/textpattern/setup/themes/four-point-eight/manifest.json`
-  * `/textpattern/setup/themes/zero/manifest.json`
+  * `textpattern/setup/themes/four-point-eight/manifest.json`
+  * `textpattern/setup/themes/zero/manifest.json`
 
 ### Step 4: Ensure Unix line endings
 
