@@ -24,7 +24,7 @@ To prepare a development version of Textpattern for stable (production) release,
 
 ### Preflight requirements
 
-* local instance of PHP
+* local instance of PHP (`php -v`)
 * know the intended next release version for resetting the repo after launch
 
 ### Step 0: Ensure everything is up-to-date
