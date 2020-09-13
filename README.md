@@ -104,7 +104,7 @@ Beta | Leave `$txp_is_dev` at `true`, then commit.
 Run `checksums.php` from `textpattern-toolbelt` and point it at the `textpattern` directory inside your working branch (not the root):
 
 ```php
-php /path/to/textpattern-toolbelt/release/checksums.php /path/to/dev/textpattern rebuild
+php /path/to/textpattern-toolbelt/release/checksums.php /path/to/repo/textpattern rebuild
 ```
 
 Optionally commit with message such as `Checksums for x.y.z`. You may wish to skip this commit if you're confident there are going to be no issues with the release. This is because:
