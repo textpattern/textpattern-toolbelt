@@ -61,18 +61,21 @@ find . -name '.DS_Store' -type f -delete
 
 # Bundle up.
 tar tcvf - -C $DESTDIR textpattern-$VER | gzip -c9 > textpattern-$VER.tar.gz
-echo 'Testing .tar.gz integrity...'
+echo 'Testing textpattern-$VER.tar.gz integrity...'
 if gzip -t textpattern-$VER.tar.gz; then
     echo 'textpattern-$VER.tar.gz passed `gzip -t` integrity test. Calculating SHA256 checksum...' \
-    && shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM
+    && shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM \
+    && echo 'SHA256 for textpattern-$VER.tar.gz: '$(cat textpattern-$VER.zip.SHA256SUM)
 else 
     echo 'textpattern-$VER.tar.gz failed `gzip -t` integrity test.'
 fi
 
 zip --symlinks -r -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
+echo 'Testing textpattern-$VER.zip integrity...'
 if unzip -t textpattern-$VER.`ip; then
     echo 'textpattern-$VER.zip passed `unzip -t` integrity test. Calculating SHA256 checksum...' \
-    && shasum -a 256 textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM
+    && shasum -a 256 textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM \
+    && echo 'SHA256 for textpattern-$VER.zip: '$(cat textpattern-$VER.zip.SHA256SUM)
 else 
     echo 'textpattern-$VER.tar.gz failed `unzip -t` integrity test.'
 fi
