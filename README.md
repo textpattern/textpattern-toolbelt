@@ -101,7 +101,7 @@ Beta | Leave `$txp_is_dev` at `true`, then commit.
 
 ### Step 8: Update checksums
 
-Run `checksums.php` from `textpattern-toolbelt`:
+Run `checksums.php` from `textpattern-toolbelt` and point it at the `textpattern` directory inside your working branch (not the root):
 
 ```php
 php /path/to/textpattern-toolbelt/release/checksums.php /path/to/dev/textpattern rebuild
