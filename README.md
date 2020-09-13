@@ -90,7 +90,7 @@ Commit all changes with a commit message of the format `HISTORY and version numb
 
 ### Step 7: Bump official version
 
-Edit `/textpattern/index.php` to bump main version number.
+Edit `textpattern/index.php` to bump main version number.
 
 **Most importantly:**
 
