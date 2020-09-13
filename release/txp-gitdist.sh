@@ -60,7 +60,7 @@ find . -name '.gitignore' -type f -delete
 find . -name '.DS_Store' -type f -delete
 
 # Bundle up.
-tar tcvf - -C $DESTDIR textpattern-$VER | gzip -c9 > textpattern-$VER.tar.gz
+tar cvf - -C $DESTDIR textpattern-$VER | gzip -c9 > textpattern-$VER.tar.gz
 echo 'Testing textpattern-$VER.tar.gz integrity...'
 if gzip -t textpattern-$VER.tar.gz; then
     echo 'textpattern-$VER.tar.gz passed `gzip -t` integrity test. Calculating SHA256 checksum...' \
