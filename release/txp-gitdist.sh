@@ -74,7 +74,7 @@ fi
 
 zip --symlinks -r -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
 echo 'Testing textpattern-$VER.zip integrity...'
-if unzip -t textpattern-$VER.`ip; then
+if unzip -t textpattern-$VER.zip; then
     echo 'textpattern-$VER.zip passed `unzip -t` integrity test. Calculating SHA256 checksum...' \
     && shasum -a 256 textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM \
     && echo 'SHA256 for textpattern-$VER.zip: '$(cat textpattern-$VER.zip.SHA256SUM) \
