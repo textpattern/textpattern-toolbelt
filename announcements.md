@@ -49,6 +49,7 @@ Do not use 'Show HN:' or 'Tell HN:', just use the blog post URL and the associat
 ## Wikipedia
 
 https://en.wikipedia.org/wiki/Textpattern
+
 https://en.wikipedia.org/wiki/Template:Textpattern_version
 
 Bump version number and release date.
