@@ -260,6 +260,8 @@ Post announcements and gratitude to blog / forum / Twitter / relevant social med
 
 Search through all `textpattern.com` articles to update any outdated version numbers (in case articles were written in advance or features got moved between versions, or reference the download itself).
 
+Update version in `rpc.textpattern.com` (Extensions -> TXP Version).
+
 ### Step 25: Relax
 
 Light cigar, pour brandy and wait for the fallout. Sleep if appropriate.
