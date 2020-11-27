@@ -84,11 +84,17 @@ Update version number(s) in:
 
 Check for any Windows line endings (`\r\n`), convert to UNIX line endings. This helps to prevent false modified files notifications for (S)FTP ASCII mode uploads.
 
-### Step 5: Verify setup/update scripts match
+* note: untested, do it manually for now.
 
-Because upgrade scripts don't run on new installs, make sure the contents of the `/setup` directory is completely in sync with all that's done in the `/update` scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added by hand.
+```bash
+find . -type f -exec grep -qIP '\r\n' {} ';' -exec perl -pi -e 's/\r\n/\n/g' {} '+'
+```
 
-Also verify that multi-site files such as `.htaccess`, `.htaccess-dist` and `css.php` are up-to-date with their root counterparts.
+### Step 5: Verify setup & update scripts match
+
+Ensure the contents of `textpattern/setup` directory is completely in sync with the `textpattern/update` scripts. Most of this is handled automatically but any per-user prefs or values injected from the setup process may need to be added manually.
+
+Verify that multi-site files such as `.htaccess`, `.htaccess-dist` and `css.php` are up-to-date with their root counterparts.
 
 ### Step 6: Commit history and versions
 
