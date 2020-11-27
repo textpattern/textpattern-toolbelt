@@ -33,9 +33,9 @@ This process prepares a development branch of Textattern for production release.
 
 ### Step 0: Ensure everything is up-to-date
 
-On GitHub, update `HISTORY.txt` with final added / changed / fixed release note information (but not the release date just yet) and merge to other branch(es) where appropriate.
+On [textpattern/textpattern](https://github.com/textpattern/textpattern/), update `HISTORY.txt` with final added / changed / fixed release notes, but do not set the release date.Merge to other branch(es) where appropriate.
 
-On your local repo, ensure _all_ branches (i.e. `main`, `dev`, and any feature branches) - are up-to-date by doing this for each one:
+Locally, ensure _all_ branches (i.e. `main`, `dev`, and any feature branches) - are up-to-date:
 
 ```bash
 git checkout branch-name
