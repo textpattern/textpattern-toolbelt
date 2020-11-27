@@ -82,7 +82,7 @@ Update version number(s) in:
 
 ### Step 4: Ensure Unix line endings
 
-Check for files containing Windows line-endings (`\r\n`) and convert those to Unix-style. This prevents false 'modified files' alarms for uploads done in FTP ASCII mode.
+Check for any Windows line endings (`\r\n`), convert to UNIX line endings. This helps to prevent false modified files notifications for (S)FTP ASCII mode uploads.
 
 ### Step 5: Verify setup/update scripts match
 
