@@ -69,14 +69,15 @@ Update `HISTORY.txt` to tag the release with a date stamp.
 
 ### Step 3: Set version numbers for all but `textpattern/index.php`
 
-Update version numbers in:
+Update version number(s) in:
+
 * `README.txt`
 * `package.json`
 * `README.md` (if possible: might need to be done afterwards, if the file download links have yet to be created).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 * Theme manifests:
-  * `textpattern/setup/themes/four-point-eight/manifest.json`
+  * `textpattern/setup/themes/[default-theme-name]/manifest.json`
   * `textpattern/setup/themes/zero/manifest.json`
 
 ### Step 4: Ensure Unix line endings
