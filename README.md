@@ -16,11 +16,12 @@ This process prepares a development branch of Textattern for production release.
 
 #### Notes
 
-* Semantic versioning is adopted with major.minor.patch standards.
+* Semantic versioning is adopted with `major.minor.patch` nomenclature.
 * Development code is suffixed `-dev`.
-* Beta releases are suffixed `-beta`, `-beta.2`, `-beta.3`, ...
-* Release candidates are suffixed `-rc1`, `-rc2`, `-rc3`, ...
-* Any reference to `x.y.z` below refers to the version number and may be suffixed as mentioned.
+* Development code can become a beta release, release candidate and/or production release.
+* Beta releases are suffixed `-beta`, `-beta.2`, `-beta.3` and so on.
+* Release candidates are suffixed `-rc1`, `-rc2`, `-rc3` and so on.
+* References to `x.y.z` below refer to the Textpattern version number and may be suffixed as mentioned.
 
 ### Preflight requirements
 
