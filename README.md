@@ -100,9 +100,9 @@ Verify that multi-site files such as `.htaccess`, `.htaccess-dist` and `css.php`
 
 Commit all changes with a commit message of the format `HISTORY and version numbers for x.y.z`.
 
-### Step 7: Bump official version
+### Step 7: Update version number
 
-Edit `textpattern/index.php` to bump main version number.
+Edit `textpattern/index.php` to update the version number.
 
 **Most importantly:**
 
