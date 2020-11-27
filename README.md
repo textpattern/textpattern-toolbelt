@@ -50,16 +50,17 @@ Navigate to the branch from which to prepare a release, and create a `release-x.
 git checkout dev
 ```
 
-_or_: (if a feature branch):
+_or_:
 
 ```bash
 git checkout x.y.z
 ```
 
-then: (for either of the above branch types):
+then:
 
 ```bash
 git checkout -b release-x.y.z
+cd release-x.y.z
 ```
 
 ### Step 2: Update history
