@@ -27,8 +27,9 @@ This process prepares a development branch of Textattern for production release.
 
 [WIP]
 
-* local instance of PHP (`php -v`)
-* know the intended next release version for resetting the repo after launch
+* Local instance of PHP (`php -v`)
+* Know the intended next release version for resetting the repo after launch.
+* Know the respective .com file IDs for the `.zip` and `.tar.gz` archives (optional, but saves time later).
 
 ### Step 0: Ensure everything is up-to-date
 
