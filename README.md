@@ -44,7 +44,7 @@ git pull
 
 ### Step 1: Create release branch based on feature branch
 
-Navigate to the branch from which you wish to make a release, and create a `release-x.y.z` branch for the new version:
+Navigate to the branch from which to prepare a release, and create a `release-x.y.z` branch for the new version:
 
 ```bash
 git checkout dev
