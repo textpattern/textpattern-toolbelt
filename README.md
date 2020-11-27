@@ -27,7 +27,8 @@ This process prepares a development branch of Textattern for production release.
 
 [WIP]
 
-* Local instance of PHP (`php -v`)
+* Local instance of PHP CLI, `gzip`, `tar` and `zip`.
+  * Checks: `php -v`, `gzip -V`, `tar --version` and `zip -v`.
 * Know the intended next release version for resetting the repo after launch.
 * Know the respective .com file IDs for the `.zip` and `.tar.gz` archives (optional, but saves time later).
 
