@@ -223,9 +223,10 @@ git checkout release-x.y.z
 
 Edit the following files to bump version number to next intended release. Ensure they have `-dev` suffix. If this release is a beta or release candidate, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
-* `/textpattern/index.php`
-* `/textpattern/textpattern.js`
 * `package.json`
+* `/textpattern/index.php`
+* The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
+* The `textpattern.version` value in `textpattern/textpattern.js`.
 
 ### Step 20: Set `dev` and commit next version
 
