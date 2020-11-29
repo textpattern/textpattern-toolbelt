@@ -12,11 +12,11 @@ Licensed under the [GPLv2 license](https://github.com/textpattern/textpattern/bl
 
 ## Textpattern release build process
 
-This process prepares a development branch of Textattern for production release. Follow the steps carefully to ensure a smooth onward journey.
+This process prepares a development branch of Textpattern for production release. Follow the steps carefully to ensure a smooth onward journey.
 
 #### Notes
 
-* Semantic versioning is adopted with `major.minor.patch` nomenclature.
+* Semantic versioning is used, with `major.minor.patch` nomenclature.
 * Development code is suffixed `-dev`.
 * Development code can become a beta release, release candidate and/or production release.
 * Beta releases are suffixed `-beta`, `-beta.2`, `-beta.3` and so on.
@@ -34,7 +34,7 @@ This process prepares a development branch of Textattern for production release.
 
 ### Step 0: Ensure everything is up-to-date
 
-On [textpattern/textpattern](https://github.com/textpattern/textpattern/), update `HISTORY.txt` with final added / changed / fixed release notes, but do not set the release date.Merge to other branch(es) where appropriate.
+On [textpattern/textpattern](https://github.com/textpattern/textpattern/), update `HISTORY.txt` with final added / changed / fixed release notes, but do not set the release date. Merge to other branch(es) where appropriate.
 
 Locally, ensure _all_ branches (i.e. `main`, `dev`, and any feature branches) - are up-to-date:
 
