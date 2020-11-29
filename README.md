@@ -61,7 +61,6 @@ then:
 
 ```bash
 git checkout -b release-x.y.z
-cd release-x.y.z
 ```
 
 ### Step 2: Update history
