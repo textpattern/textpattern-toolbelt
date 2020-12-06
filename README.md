@@ -68,6 +68,8 @@ git checkout -b release-x.y.z
 Update version number(s) in:
 
 * `README.txt`
+* `INSTALL.txt`
+* `UPGRADE.txt`
 * `package.json`
 * `README.md` (if possible: might need to be done afterwards, if the file download links have yet to be created).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
