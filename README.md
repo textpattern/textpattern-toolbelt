@@ -271,6 +271,8 @@ Check downloads for the following:
 
 * https://textpattern.com/latest.tar.gz
 * https://textpattern.com/latest.zip
+* https://textpattern.com/pophelp-download
+* https://textpattern.com/textpack-download
 
 ### Step 23: Tell everyone
 
