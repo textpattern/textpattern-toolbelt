@@ -255,16 +255,33 @@ git branch -d x.y.z
 git push origin --delete x.y.z
 ```
 
-### Step 22: Tell everyone
+### Step 22: Update textpattern.com web server configuration
+
+* note: only for production releases.
+
+The textpattern.com configuration is [here](https://github.com/textpattern/server-config/blob/main/servers/files/trumpet.textpattern.com/etc/nginx/sites-available/www.textpattern.com.conf), search for `#start release vars`.
+
+* set `txpver_1b8835e8` variable to release version in semver format (e.g. `1.2.3`).
+* set `$targzid_1b8835e8` to the Textpattern file ID for the .tar.gz archive (e.g `123`).
+* set `$zipid_1b8835e8` to the Textpattern file ID for the .zip archive (e.g `124`).
+* upload the file to `/etc/nginx/sites-available/www.textpattern.com.conf` (or modify in place).
+* restart Nginx (i.e. `sudo systemctl restart nginx`).
+
+Check downloads for the following:
+
+* https://textpattern.com/latest.tar.gz
+* https://textpattern.com/latest.zip
+
+### Step 23: Tell everyone
 
 Post announcements and gratitude to blog / forum / Twitter / relevant social media.
 
-### Step 23: Update links to latest version in docs, etc
+### Step 24: Update links to latest version in docs, etc
 
 Search through all `textpattern.com` articles to update any outdated version numbers (in case articles were written in advance or features got moved between versions, or reference the download itself).
 
 Update version in `rpc.textpattern.com` (Extensions -> TXP Version).
 
-### Step 24: Relax
+### Step 25: Relax
 
 Light cigar, pour brandy and wait for the fallout. Sleep if appropriate.
