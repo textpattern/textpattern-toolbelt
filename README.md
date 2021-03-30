@@ -259,7 +259,7 @@ git push origin --delete x.y.z
 
 * note: only for production releases.
 
-The textpattern.com configuration is [here](https://github.com/textpattern/server-config/blob/main/servers/files/trumpet.textpattern.com/etc/nginx/sites-available/www.textpattern.com.conf), search for `#start release vars`.
+The textpattern.com configuration is [here](https://github.com/textpattern/server-config/blob/main/servers/files/trapeze.textpattern.net/etc/nginx/servers-available/www.textpattern.com.conf), search for `#start release vars`.
 
 * set `txpver_1b8835e8` variable to release version in semver format (e.g. `1.2.3`).
 * set `$targzid_1b8835e8` to the Textpattern file ID for the .tar.gz archive (e.g `123`).
