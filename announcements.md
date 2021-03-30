@@ -36,6 +36,10 @@ Thank you!
 
 Add link to Latest Happenings thread.
 
+## Open Collective
+
+Post an announcemnet to Open Collective for our supporters (@philwareham).
+
 ## Socials
 
 ### Twitter
