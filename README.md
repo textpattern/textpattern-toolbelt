@@ -77,6 +77,8 @@ Update version number(s) in:
 * Theme manifests:
   * `textpattern/setup/themes/[default-theme-name]/manifest.json`
   * `textpattern/setup/themes/zero/manifest.json`
+* Admin theme manifests: `textpattern/admin-themes/[theme-name]/manifest.json`
+  * These are usually done in advance of release by [updating the admin-theme repos](https://github.com/philwareham) and pulling the changes in (e.g. from the x.y.z. branch, issue: `npm run get-hive-admin-theme`).
 
 ### Step 3: Verify setup & update scripts match
 
