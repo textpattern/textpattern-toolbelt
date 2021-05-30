@@ -104,7 +104,7 @@ Beta | Leave `$txp_is_dev` at `true`, then commit.
 Run `checksums.php` from `textpattern-toolbelt` and point it at the `textpattern` directory inside your working branch (not the root):
 
 ```php
-php /path/to/textpattern-toolbelt/release/checksums.php /path/to/repo/textpattern rebuild
+php /path/to/textpattern-toolbelt/release/checksums.php /path/to/working-branch-repo/textpattern rebuild
 ```
 
 Optionally commit with message such as `Checksums for x.y.z`. You may wish to skip this commit if you're confident there are going to be no issues with the release. This is because:
@@ -145,11 +145,11 @@ git push
 
 ### Step 10: Build the archives
 
-Run the build script. It will build two packaged archive files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
+Run the archives build script. It will build two packaged archive files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
 
 ```bash
-cd /path/to/repo
-/path/to/textpattern-toolbelt/release/txp-gitdist.sh x.y.z
+cd /path/to/working-branch-repo
+bash /path/to/textpattern-toolbelt/release/txp-gitdist.sh x.y.z
 ```
 
 ### Step 11: Verify archives
@@ -216,7 +216,7 @@ git checkout release-x.y.z
 Edit the following files to bump version number to next intended release. Ensure they have `-dev` suffix. If this release is a beta or release candidate, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
 * `package.json`
-* `/textpattern/index.php`
+* `textpattern/index.php`
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 
@@ -264,7 +264,7 @@ The textpattern.com configuration is [here](https://github.com/textpattern/serve
 * set `txpver_1b8835e8` variable to release version in semver format (e.g. `1.2.3`).
 * set `$targzid_1b8835e8` to the Textpattern file ID for the .tar.gz archive (e.g `123`).
 * set `$zipid_1b8835e8` to the Textpattern file ID for the .zip archive (e.g `124`).
-* upload the file to `/etc/nginx/sites-available/www.textpattern.com.conf` (or modify in place).
+* upload the file to `/etc/nginx/servers-available/www.textpattern.com.conf` (or modify in place).
 * restart Nginx (i.e. `sudo systemctl restart nginx`).
 
 Check downloads for the following:
