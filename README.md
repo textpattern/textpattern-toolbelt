@@ -22,6 +22,7 @@ This process prepares a development branch of Textpattern for production release
 * Beta releases are suffixed `-beta`, `-beta.2`, `-beta.3` and so on.
 * Release candidates are suffixed `-rc1`, `-rc2`, `-rc3` and so on.
 * References to `x.y.z` below refer to the Textpattern version number and may be suffixed as mentioned.
+* *There's no need to push the `release-x.y.z` branch upstream* unless you wish someone else to take over your work. Keeping it local is fine.
 
 ### Preflight requirements
 
@@ -34,9 +35,7 @@ This process prepares a development branch of Textpattern for production release
 
 ### Step 0: Ensure everything is up-to-date
 
-On [textpattern/textpattern](https://github.com/textpattern/textpattern/), update `HISTORY.txt` with final added / changed / fixed release notes, but do not set the release date. Merge to other branch(es) where appropriate.
-
-Locally, ensure _all_ branches (i.e. `main`, `dev`, and any feature branches) are up-to-date:
+On [textpattern/textpattern](https://github.com/textpattern/textpattern/), update `HISTORY.txt` with final added / changed / fixed release notes, but *do not set the release date*. Merge to other branch(es) where appropriate, ensure all branches (i.e. `main`, `dev`, and any feature branches) are up-to-date where appropriate:
 
 ```bash
 git checkout branch-name
@@ -54,7 +53,7 @@ git checkout dev
 _or_:
 
 ```bash
-git checkout x.y.z
+git checkout vx.y.z
 ```
 
 then:
@@ -71,7 +70,7 @@ Update version number(s) in:
 * `INSTALL.txt`
 * `UPGRADE.txt`
 * `package.json`
-* `README.md` (if possible: might need to be done afterwards, if the file download links have yet to be created).
+* `README.md` (including the download file IDs - usually just add 2 to each value, since there are a pair of downloads).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 * Theme manifests:
@@ -109,10 +108,7 @@ Run `checksums.php` from `textpattern-toolbelt` and point it at the `textpattern
 php /path/to/textpattern-toolbelt/release/checksums.php /path/to/working-branch-repo/textpattern rebuild
 ```
 
-Optionally commit with message such as `Checksums for x.y.z`. You may wish to skip this commit if you're confident there are going to be no issues with the release. This is because:
-
-* If there are no issues from the next step, there will be no files with changes upon which to hang the 'this is x.y.z' commit, so you may wish to defer (or skip) committing until after testing.
-* If you do find issues, you can commit the current state including checksums, fix / test / commit with atomic commits as usual, then rerun checksums and commit as a final 'This is x.y.z', as mentioned in the next step.
+Commit with message such as `Checksums for x.y.z`.
 
 ### Step 7: Test!
 
@@ -129,13 +125,13 @@ Copy the entire bundle to a local directory and test. Things to look for:
 9. Interface UI strings are all assigned English labels.
 10. Left over files that need deleting.
 
-Fix anything that doesn't work, and commit changes to the `release-x.y.z` branch. Run checksums again if required and commit with message such as `This is x.y.z`.
+Fix anything that doesn't work, and commit atomic changes to the `release-x.y.z` branch. Run checksums again if required.
 
 ### Step 8: Update history
 
-Update `HISTORY.txt` to tag the release with a date stamp.
+Update `HISTORY.txt` to tag the release with a date stamp and commit with message such as `This is x.y.z`.
 
-### Step 9: Merge to the main repo
+### Step 9: Merge to the main repo and push it upstream
 
 Merge to `main`:
 
@@ -147,7 +143,7 @@ git push
 
 ### Step 10: Build the archives
 
-Run the archives build script. It will build two packaged archive files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
+Run the archive build script. It will build two packaged archive files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
 
 ```bash
 cd /path/to/working-branch-repo
@@ -156,13 +152,13 @@ bash /path/to/textpattern-toolbelt/release/txp-gitdist.sh x.y.z
 
 ### Step 11: Verify archives
 
-Verify archives have been built correctly. Decompress them to check.
+Open thhe temporary build location and verify archives have been built correctly. Decompress them to check.
 
 ### Step 12: Build release on GitHub
 
 Prepare a release for version `x.y.z` on GitHub:
 * Set the tag to just the vanilla version number `x.y.z` along with any required `-beta` or `-rc` suffix.
-* Ensure the target select box is `main`.
+* **Vital**: Ensure the target select box is `main`.
 * Use the same tag name for the release Title, but prefix it with a lower case `v`.
 * Attach archives and SHA256 checksums.
 * If it's a beta or release candidate, ensure the `Pre-release` checkbox is set.
@@ -203,9 +199,9 @@ notextile. <txp::media_file filename="textpattern-x.y.z.zip" />
 
 Add a section to the 'Get started' article when a beta is available (remove it from here at the end of the beta cycle but leave it in its dedicated article for posterity).
 
-Update the release notes link in 'Get started with Textpattern' to point to the announcement blog post.
+Update the release notes link in [Get started with Textpattern](https://textpattern.com/start) to point to the announcement blog post.
 
-### Step 17: Prepare for next version
+### Step 17: Prepare for next version: set version numbers and commit
 
 Prepare for ongoing development:
 
@@ -213,20 +209,16 @@ Prepare for ongoing development:
 git checkout release-x.y.z
 ```
 
-### Step 18: Set version numbers for next version
-
 Edit the following files to bump version number to next intended release. Ensure they have `-dev` suffix. If this release is a beta or release candidate, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
-* `package.json`
-* `textpattern/index.php`
+* `package.json`.
+* `textpattern/index.php` (also set `$txp_is_dev` to `true` if it was previously `false`).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 
-### Step 19: Set `dev` and commit next version
+Commit to ensure version change is applied, using a suitable commit message of the format 'Back to dev' or 'Towards a.b.c'.
 
-Set `$txp_is_dev` to `true` if it was previously `false`. Commit regardless to ensure version change is applied, using a suitable commit message of the format 'Back to dev'.
-
-### Step 20: Merge release back into dev
+### Step 18: Merge release-x.y.z back into dev
 
 Merge release to `dev` so any changes in the release are recorded:
 
@@ -236,7 +228,7 @@ git merge release-x.y.z
 git push
 ```
 
-### Step 21: Tidy up branches
+### Step 19: Tidy up branches
 
 Delete release branch as it has served its purpose:
 
@@ -244,28 +236,28 @@ Delete release branch as it has served its purpose:
 git branch -d release-x.y.z
 ```
 
-You might have to use `-D` switch if the branch deletion complains it's 'unmerged': that's because we just modified it ready for returning to `dev`. It depends if the release branch was mistakenly pushed to the central repo or not. If so:
+You might have to use `-D` switch if the branch deletion complains it's 'unmerged': that's because we just modified it ready for returning to `dev`. It depends if the release branch was pushed upstream or not. If so:
 
 ```bash
 git push origin --delete release-x.y.z
 ```
 
-If you've just released a feature branch (i.e. patch, not minor/major dev release) then there'll be the old `x.y.z` branch on your local and remote servers. Once you're absolutely sure that the merge back to dev from `release-x.y.z` has completed and pushed to the server successfully, you can remove your local and remote `x.y.z` branches:
+If you've just released a feature branch (i.e. patch, not minor/major dev release) then there'll be the old `vx.y.z` branch on your local and remote servers. Once you're absolutely sure that the merge back to dev from `release-x.y.z` has completed and pushed to the server successfully, you can remove your local and remote `vx.y.z` branches:
 
 ```bash
-git branch -d x.y.z
-git push origin --delete x.y.z
+git branch -d vx.y.z
+git push origin --delete vx.y.z
 ```
 
-### Step 22: Update textpattern.com web server configuration
+### Step 20: Update textpattern.com web server configuration
 
 * note: only for production releases.
 
 The textpattern.com configuration is [here](https://github.com/textpattern/server-config/blob/main/servers/files/trapeze.textpattern.net/etc/nginx/servers-available/www.textpattern.com.conf), search for `#start release vars`.
 
 * set `txpver_1b8835e8` variable to release version in semver format (e.g. `1.2.3`).
-* set `$targzid_1b8835e8` to the Textpattern file ID for the .tar.gz archive (e.g `123`).
-* set `$zipid_1b8835e8` to the Textpattern file ID for the .zip archive (e.g `124`).
+* set `$targzid_1b8835e8` to the Textpattern file ID for the .tar.gz archive (e.g `101`).
+* set `$zipid_1b8835e8` to the Textpattern file ID for the .zip archive (e.g `102`).
 * upload the file to `/etc/nginx/servers-available/www.textpattern.com.conf` (or modify in place).
 * restart Nginx (i.e. `sudo systemctl restart nginx`).
 
@@ -276,16 +268,16 @@ Check downloads for the following:
 * https://textpattern.com/pophelp-download
 * https://textpattern.com/textpack-download
 
-### Step 23: Tell everyone
+### Step 21: Tell everyone
 
 Post announcements and gratitude to blog / forum / Twitter / relevant social media.
 
-### Step 24: Update links to latest version in docs, etc
+### Step 22: Update links to latest version in docs, etc
 
 Search through all `textpattern.com` articles to update any outdated version numbers (in case articles were written in advance or features got moved between versions, or reference the download itself).
 
 Update version in `rpc.textpattern.com` (Extensions -> TXP Version).
 
-### Step 25: Relax
+### Step 23: Relax
 
 Light cigar, pour brandy and wait for the fallout. Sleep if appropriate.
