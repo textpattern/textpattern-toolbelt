@@ -31,7 +31,7 @@ This process prepares a development branch of Textpattern for production release
 * Local instance of PHP CLI, `gzip`, `tar` and `zip`.
   * Checks: `php -v`, `gzip -V`, `tar --version` and `zip -v`.
 * Know the intended next release version for resetting the repo after launch.
-* Know the respective .com file IDs for the `.zip` and `.tar.gz` archives.
+* Know the respective `textpattern.com` file IDs for the `.zip` and `.tar.gz` archives.
 
 ### Step 0: Ensure everything is up-to-date
 
