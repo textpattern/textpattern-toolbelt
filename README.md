@@ -253,14 +253,14 @@ git push origin --delete vx.y.z
 
 ### Step 20: Update `textpattern.com` web server configuration
 
-* note: only for production releases.
+* note: only for production releases, ping @petecooper if you're stuck.
 
 The `textpattern.com` configuration is [here](https://github.com/textpattern/server-config/blob/main/servers/files/trapeze.textpattern.net/etc/nginx/servers-available/www.textpattern.com.conf), search for `#start release vars`.
 
 * set `txpver_1b8835e8` variable to release version in semver format (e.g. `1.2.3`).
 * set `$targzid_1b8835e8` to the Textpattern file ID for the `.tar.gz` archive (e.g `101`).
 * set `$zipid_1b8835e8` to the Textpattern file ID for the `.zip` archive (e.g `102`).
-* upload the file to `/etc/nginx/servers-available/www.textpattern.com.conf` (or modify in place).
+* upload the file to overwrite the existing `/etc/nginx/servers-available/www.textpattern.com.conf` (or modify in place).
 * restart Nginx (i.e. `sudo systemctl restart nginx`).
 
 Check downloads for the following:
