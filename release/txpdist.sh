@@ -19,6 +19,15 @@
 # * along with Textpattern. If not, see <http://www.gnu.org/licenses/>.
 # */
 
+#/*
+# * DEPRECATED - DEPRECATED - DEPRECATED - DEPRECATED - DEPRECATED
+# *
+# * This file was used to create a Textpattern release using the
+# * now-defunct Google Code platform. Refer to https://textpattern.com/
+# * for guidance on current development processes.
+# */
+
+
 if [ $# -lt 1 ]; then
 	echo 1>&2 Usage: $0 '<version> [svn-repos]'
 	exit 127
