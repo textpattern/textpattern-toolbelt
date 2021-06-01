@@ -31,7 +31,7 @@ This process prepares a development branch of Textpattern for production release
 * Local instance of PHP CLI, `gzip`, `tar` and `zip`.
   * Checks: `php -v`, `gzip -V`, `tar --version` and `zip -v`.
 * Know the intended next release version for resetting the repo after launch.
-* Know the respective .com file IDs for the `.zip` and `.tar.gz` archives (optional, but saves time later).
+* Know the respective .com file IDs for the `.zip` and `.tar.gz` archives.
 
 ### Step 0: Ensure everything is up-to-date
 
@@ -76,8 +76,10 @@ Update version number(s) in:
 * Theme manifests:
   * `textpattern/setup/themes/[default-theme-name]/manifest.json`
   * `textpattern/setup/themes/zero/manifest.json`
-* Admin theme manifests: `textpattern/admin-themes/[theme-name]/manifest.json`
-  * These are usually done in advance of release by [updating the admin-theme repos](https://github.com/philwareham) and pulling the changes in (e.g. from the x.y.z. branch, issue: `npm run get-hive-admin-theme`).
+* Admin theme manifests:
+  * `textpattern/admin-themes/[theme-name]/manifest.json`
+
+These are usually done in advance of release by updating the admin-theme repos (typically @philwareham) and pulling the changes in (e.g. from the `x.y.z` branch, issue: `npm run get-hive-admin-theme`).
 
 ### Step 3: Verify setup & update scripts match
 
@@ -108,7 +110,7 @@ Run `checksums.php` from `textpattern-toolbelt` and point it at the `textpattern
 php /path/to/textpattern-toolbelt/release/checksums.php /path/to/working-branch-repo/textpattern rebuild
 ```
 
-Commit with message such as `Checksums for x.y.z`.
+Commit with message of the format `Checksums for x.y.z`.
 
 ### Step 7: Test!
 
@@ -129,7 +131,7 @@ Fix anything that doesn't work, and commit atomic changes to the `release-x.y.z`
 
 ### Step 8: Update history
 
-Update `HISTORY.txt` to tag the release with a date stamp and commit with message such as `This is x.y.z`.
+Update `HISTORY.txt` to tag the release with a date stamp and commit with message of the format `This is x.y.z`.
 
 ### Step 9: Merge to the main repo and push it upstream
 
@@ -143,7 +145,7 @@ git push
 
 ### Step 10: Build the archives
 
-Run the archive build script. It will build two packaged archive files with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
+Run the archive build script. It will build two archive files (`textpattern-x.y.z.zip` and `textpattern-x.y.z.tar.gz`) with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
 
 ```bash
 cd /path/to/working-branch-repo
@@ -152,7 +154,9 @@ bash /path/to/textpattern-toolbelt/release/txp-gitdist.sh x.y.z
 
 ### Step 11: Verify archives
 
-Open thhe temporary build location and verify archives have been built correctly. Decompress them to check.
+Open the temporary build location and verify archives have been built correctly. Decompress them to check.
+
+Upload the archives to https://virustotal.com for sanity check of files and generated checksums.
 
 ### Step 12: Build release on GitHub
 
@@ -167,7 +171,7 @@ Use `git pull` to bring the new tag down to your local repo's `main` branch.
 
 ### Step 13: Add archives to textpattern.com
 
-Upload archives to textpattern.com website. Ensure they comply with the semantic filename versioning rules.
+Upload archives to `textpattern.com` website. Ensure they comply with the semantic filename versioning rules.
 
 For each uploaded file, select the appropriate file category:
 
@@ -178,9 +182,7 @@ Current beta release (Zip format)
 Current beta release (Gzip format)
 ```
 
-Make sure the `Title` and `Description` fields are filled out correctly (see previous files for examples of this).
-`Title` holds the release version number.
-`Description` houses the SHA256 token.
+Make sure the `Title` and `Description` fields are filled out correctly (see previous files for examples of this). `Title` holds the release version number. `Description` houses the SHA256 token.
 
 ### Step 14: Adjust archive category assignment
 
@@ -216,11 +218,11 @@ Edit the following files to bump version number to next intended release. Ensure
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 
-Commit to ensure version change is applied, using a suitable commit message of the format 'Back to dev' or 'Towards a.b.c'.
+Commit to ensure the version change is applied, using a suitable commit message of the format 'Back to dev' or 'Towards x.y.z'.
 
-### Step 18: Merge release-x.y.z back into dev
+### Step 18: Merge `release-x.y.z` back into `dev`
 
-Merge release to `dev` so any changes in the release are recorded:
+Merge release to `dev` so changes in the release are recorded:
 
 ```bash
 git checkout dev
@@ -249,15 +251,15 @@ git branch -d vx.y.z
 git push origin --delete vx.y.z
 ```
 
-### Step 20: Update textpattern.com web server configuration
+### Step 20: Update `textpattern.com` web server configuration
 
 * note: only for production releases.
 
-The textpattern.com configuration is [here](https://github.com/textpattern/server-config/blob/main/servers/files/trapeze.textpattern.net/etc/nginx/servers-available/www.textpattern.com.conf), search for `#start release vars`.
+The `textpattern.com` configuration is [here](https://github.com/textpattern/server-config/blob/main/servers/files/trapeze.textpattern.net/etc/nginx/servers-available/www.textpattern.com.conf), search for `#start release vars`.
 
 * set `txpver_1b8835e8` variable to release version in semver format (e.g. `1.2.3`).
-* set `$targzid_1b8835e8` to the Textpattern file ID for the .tar.gz archive (e.g `101`).
-* set `$zipid_1b8835e8` to the Textpattern file ID for the .zip archive (e.g `102`).
+* set `$targzid_1b8835e8` to the Textpattern file ID for the `.tar.gz` archive (e.g `101`).
+* set `$zipid_1b8835e8` to the Textpattern file ID for the `.zip` archive (e.g `102`).
 * upload the file to `/etc/nginx/servers-available/www.textpattern.com.conf` (or modify in place).
 * restart Nginx (i.e. `sudo systemctl restart nginx`).
 
@@ -270,7 +272,7 @@ Check downloads for the following:
 
 ### Step 21: Tell everyone
 
-Post announcements and gratitude to blog / forum / Twitter / relevant social media.
+Post announcements and gratitude to blog / forum / Twitter / relevant social media. See `announcements.md` for more details.
 
 ### Step 22: Update links to latest version in docs, etc
 
