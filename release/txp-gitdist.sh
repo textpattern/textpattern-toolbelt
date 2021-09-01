@@ -55,6 +55,7 @@ rm textpattern-$VER/.gitattributes
 rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
 rm textpattern-$VER/README.md
+rm textpattern-$VER/SECURITY.md
 rm -rf textpattern-$VER/.github
 find . -name '.gitignore' -type f -delete
 find . -name '.DS_Store' -type f -delete
