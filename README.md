@@ -64,7 +64,7 @@ git checkout -b release-x.y.z
 
 ### Step 2: Set version numbers for all but `textpattern/index.php`
 
-Update version number(s) in:
+Update version number(s) and remove any references to 'upcoming' in:
 
 * `README.txt`
 * `INSTALL.txt`
