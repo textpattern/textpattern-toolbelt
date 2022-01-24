@@ -12,7 +12,7 @@ Licensed under the [GPLv2 license](https://github.com/textpattern/textpattern/bl
 
 ## Textpattern release build process
 
-This process prepares a development branch of Textpattern for production release. Follow the steps carefully to ensure a smooth onward journey.
+This process prepares a development branch of Textpattern for beta or production release. Follow the steps carefully to ensure a smooth onward journey.
 
 #### Notes
 
