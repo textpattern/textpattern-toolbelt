@@ -70,7 +70,7 @@ Update version number(s) and remove any references to 'upcoming' in:
 * `INSTALL.txt`
 * `UPGRADE.txt`
 * `package.json`
-* `README.md` (including the download file IDs - usually just add 2 to each value, since there are a pair of downloads).
+* `README.md` (including the download file IDs - add 2 usually, but check for beta release(s)).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 * Theme manifests:
