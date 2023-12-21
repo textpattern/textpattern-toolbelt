@@ -49,11 +49,14 @@ cd $DESTDIR
 # Tidy and remove development helper files.
 rm textpattern-$VER.tar.gz
 rm textpattern-$VER.zip
-rm textpattern-$VER/composer.json
-rm textpattern-$VER/package.json
 rm textpattern-$VER/.gitattributes
-rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/.phpstorm.meta.php
+rm textpattern-$VER/CODE_OF_CONDUCT.md
+rm textpattern-$VER/composer.json
+rm textpattern-$VER/composer.lock
+rm textpattern-$VER/CONTRIBUTING.md
+rm textpattern-$VER/package.json
+rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/README.md
 rm textpattern-$VER/SECURITY.md
 rm -rf textpattern-$VER/.github
