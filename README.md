@@ -282,4 +282,4 @@ Update version in `rpc.textpattern.com` (Extensions -> TXP Version).
 
 ### Step 23: Relax
 
-Light cigar, pour brandy and wait for the fallout. Sleep if appropriate.
+Light cigar, pour brandy and wait for the fallout. [Go to bed](https://web.archive.org/web/20040313194455/http%3A//www.textism.com/article/781/Textpattern) if appropriate.
