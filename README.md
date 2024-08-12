@@ -93,7 +93,7 @@ Commit all changes with a commit message of the format `HISTORY and version numb
 
 ### Step 5: Update version number
 
-Edit `textpattern/index.php` to update the version number.
+Edit `textpattern/lib/constants.php` to update the version number.
 
 **Most importantly:**
 
