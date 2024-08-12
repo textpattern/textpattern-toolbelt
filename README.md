@@ -64,7 +64,7 @@ then:
 git checkout -b release-x.y.z
 ```
 
-### Step 2: Set version numbers for all but `textpattern/index.php`
+### Step 2: Set version numbers for all but `textpattern/lib/constants.php`
 
 Update version number(s) and remove any references to 'upcoming' in:
 
