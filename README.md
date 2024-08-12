@@ -101,8 +101,8 @@ Edit `textpattern/lib/constants.php` to update the version number.
 
 Release type | Note
 ------------ | ----
-Stable | Set `$txp_is_dev` to `false`, then commit.
-Beta | Leave `$txp_is_dev` at `true`, then commit.
+Stable | Set `$txp_is_dev` to `false`.
+Beta | Leave `$txp_is_dev` at `true`.
 
 ### Step 6: Update checksums
 
@@ -216,7 +216,7 @@ git checkout release-x.y.z
 Edit the following files to bump version number to next intended release. Ensure they have `-dev` suffix. If this release is a beta or release candidate, it's okay to revert the version number to the same `x.y.z-dev` it was before.
 
 * `package.json`.
-* `textpattern/index.php` (also set `$txp_is_dev` to `true` if it was previously `false`).
+* `textpattern/lib/constants.php` (also set `$txp_is_dev` to `true` if it was previously `false`).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 
