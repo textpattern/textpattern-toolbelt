@@ -79,19 +79,19 @@ rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/composer.json
 echo -e "\n"
 echo '== Building textpattern-'$VER'.tar.gz in '$DESTDIR'.'
 tar cf - -C $DESTDIR textpattern-$VER | gzip -c9 -q > textpattern-$VER.tar.gz \
-&& echo '== Built textpattern-'$VER'.tar.gz.'
+&& echo ' - Built textpattern-'$VER'.tar.gz.'
 
 # Build .tar.xz.
 echo -e "\n"
 echo '== Building textpattern-'$VER'.tar.xz in '$DESTDIR'.'
 tar cf - -C $DESTDIR textpattern-$VER | xz -9e -z -q > textpattern-$VER.tar.xz \
-&& echo '== Built textpattern-'$VER'.tar.sz.'
+&& echo ' - Built textpattern-'$VER'.tar.sz.'
 
 # Build .zip.
 echo -e "\n"
 echo '== Building textpattern-'$VER'.zip in '$DESTDIR'.'
 zip --symlinks -r -q -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\* \
-&& echo '== Built textpattern-'$VER'.zip'
+&& echo ' - Built textpattern-'$VER'.zip'
 
 # Tests and checksums for .tar.gz.
 echo -e "\n"
@@ -105,6 +105,20 @@ if gzip -t textpattern-$VER.tar.gz 2>&1 | sed 's/^/   /'; then
     && shasum -a 256 -c textpattern-$VER.tar.gz.SHA256SUM 2>&1 | sed 's/^/   /'
 else 
     echo ' - textpattern-$VER.tar.gz failed `gzip -t` integrity test.'
+fi
+
+# Tests and checksums for .tar.xz.
+echo -e "\n"
+echo '== Testing textpattern-'$VER'.tar.xz integrity...'
+if xz -t textpattern-$VER.tar.xz 2>&1 | sed 's/^/   /'; then
+    echo ' - textpattern-'$VER'.tar.xz passed `xz -t` integrity test.' \
+    && echo ' - Calculating textpattern-'$VER'.tar.xz checksum...' \
+    && shasum -a 256 textpattern-$VER.tar.xz > textpattern-$VER.tar.xz.SHA256SUM \
+    && echo -e " - SHA256 for textpattern-'$VER'.tar.xz:\n   "$(cat textpattern-$VER.tar.xz.SHA256SUM | cut -c1-64) \
+    && echo ' - Checking textpattern-'$VER'.tar.xz checksum...' \
+    && shasum -a 256 -c textpattern-$VER.tar.xz.SHA256SUM 2>&1 | sed 's/^/   /'
+else 
+    echo ' - textpattern-$VER.tar.xz failed `xz -t` integrity test.'
 fi
 
 # Tests and checksums for .zip.

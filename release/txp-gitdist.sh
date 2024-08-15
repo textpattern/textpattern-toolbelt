@@ -77,13 +77,13 @@ rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/composer.json
 echo -e "\n"
 echo '== Building textpattern-'$VER'.tar.gz in '$DESTDIR'.'
 tar cf - -C $DESTDIR textpattern-$VER | gzip -c9 -q > textpattern-$VER.tar.gz \
-&& echo '== Built textpattern-'$VER'.tar.gz.'
+&& echo ' - Built textpattern-'$VER'.tar.gz.'
 
 # Build .zip.
 echo -e "\n"
 echo '== Building textpattern-'$VER'.zip in '$DESTDIR'.'
 zip --symlinks -r -q -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\* \
-&& echo '== Built textpattern-'$VER'.zip'
+&& echo ' - Built textpattern-'$VER'.zip'
 
 # Tests and checksums for .tar.gz.
 echo -e "\n"
