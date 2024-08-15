@@ -79,19 +79,22 @@ rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/composer.json
 echo -e "\n"
 echo '== Building textpattern-'$VER'.tar.gz in '$DESTDIR'.'
 tar cf - -C $DESTDIR textpattern-$VER | gzip -c9 -q > textpattern-$VER.tar.gz \
-&& echo ' - Built textpattern-'$VER'.tar.gz.'
+&& echo ' - Built textpattern-'$VER'.tar.gz:' \
+&& echo '   '$(wc -c textpattern-$VER.tar.gz | awk '{print $1}')' bytes'
 
 # Build .tar.xz.
 echo -e "\n"
 echo '== Building textpattern-'$VER'.tar.xz in '$DESTDIR'.'
 tar cf - -C $DESTDIR textpattern-$VER | xz -9e -z -q > textpattern-$VER.tar.xz \
-&& echo ' - Built textpattern-'$VER'.tar.sz.'
+&& echo ' - Built textpattern-'$VER'.tar.xz:' \
+&& echo '   '$(wc -c textpattern-$VER.tar.xz | awk '{print $1}')' bytes'
 
 # Build .zip.
 echo -e "\n"
 echo '== Building textpattern-'$VER'.zip in '$DESTDIR'.'
 zip --symlinks -r -q -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\* \
-&& echo ' - Built textpattern-'$VER'.zip'
+&& echo ' - Built textpattern-'$VER'.zip:' \
+&& echo '   '$(wc -c textpattern-$VER.zip | awk '{print $1}')' bytes'
 
 # Tests and checksums for .tar.gz.
 echo -e "\n"
