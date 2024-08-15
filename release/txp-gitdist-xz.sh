@@ -110,7 +110,7 @@ fi
 # Tests and checksums for .tar.xz.
 echo -e "\n"
 echo '== Testing textpattern-'$VER'.tar.xz integrity...'
-if xz -t textpattern-$VER.tar.xz 2>&1 | sed 's/^/   /'; then
+if xz -q -t textpattern-$VER.tar.xz 2>&1 | sed 's/^/   /'; then
     echo ' - textpattern-'$VER'.tar.xz passed `xz -t` integrity test.' \
     && echo ' - Calculating textpattern-'$VER'.tar.xz SHA256 checksum...' \
     && shasum -a 256 textpattern-$VER.tar.xz > textpattern-$VER.tar.xz.SHA256SUM \
