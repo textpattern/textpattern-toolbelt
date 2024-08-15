@@ -76,10 +76,10 @@ tar cvf - -C $DESTDIR textpattern-$VER | gzip -c9 > textpattern-$VER.tar.gz
 echo '=> Testing textpattern-'$VER'.tar.gz integrity...'
 if gzip -t textpattern-$VER.tar.gz; then
     echo 'textpattern-'$VER'.tar.gz passed `gzip -t` integrity test. Calculating SHA256 checksum...' \
-    && shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM \
+    && shasum -a 256 -b textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM \
     && echo 'SHA256 for textpattern-'$VER'.tar.gz: '$(cat textpattern-$VER.tar.gz.SHA256SUM) \
     && echo 'Checking textpattern-'$VER'.tar.gz against textpattern-'$VER'.tar.gz.SHA256SUM...' \
-    && shasum -a 256 -c <<< '$(cat textpattern-$VER.tar.gz.SHA256SUM) textpattern-$VER.tar.gz'
+    && shasum -a 256 -b -c <<< '$(cat textpattern-$VER.tar.gz.SHA256SUM) textpattern-$VER.tar.gz'
 else 
     echo 'textpattern-$VER.tar.gz failed `gzip -t` integrity test.'
 fi
@@ -88,10 +88,10 @@ zip --symlinks -r -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern
 echo '=> Testing textpattern-'$VER'.zip integrity...'
 if unzip -t textpattern-$VER.zip; then
     echo 'textpattern-'$VER'.zip passed `unzip -t` integrity test. Calculating SHA256 checksum...' \
-    && shasum -a 256 textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM \
+    && shasum -a 256 -b textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM \
     && echo 'SHA256 for textpattern-'$VER'.zip: '$(cat textpattern-$VER.zip.SHA256SUM) \
     && echo 'Checking textpattern-'$VER'.zip against textpattern-'$VER'.zip.SHA256SUM...' \
-    && shasum -a 256 -c <<< '$(cat textpattern-$VER.zip.SHA256SUM) textpattern-$VER.zip'
+    && shasum -a 256 -b -c <<< '$(cat textpattern-$VER.zip.SHA256SUM) textpattern-$VER.zip'
 else 
     echo 'textpattern-$VER.zip failed `unzip -t` integrity test.'
 fi
