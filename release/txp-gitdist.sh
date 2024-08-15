@@ -49,6 +49,8 @@ cd $DESTDIR
 # Tidy and remove development helper files.
 rm textpattern-$VER.tar.gz
 rm textpattern-$VER.zip
+rm textpattern-$VER.tar.gz.SHA256SUM
+rm textpattern-$VER.zip.SHA256SUM
 rm textpattern-$VER/.gitattributes
 rm textpattern-$VER/.phpstorm.meta.php
 rm textpattern-$VER/CODE_OF_CONDUCT.md
@@ -75,25 +77,25 @@ rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/composer.json
 tar cvf - -C $DESTDIR textpattern-$VER | gzip -c9 > textpattern-$VER.tar.gz
 echo '=> Testing textpattern-'$VER'.tar.gz integrity...'
 if gzip -t textpattern-$VER.tar.gz; then
-    echo 'textpattern-'$VER'.tar.gz passed `gzip -t` integrity test. Calculating SHA256 checksum...' \
+    echo '=> textpattern-'$VER'.tar.gz passed `gzip -t` integrity test. Calculating SHA256 checksum...' \
     && shasum -a 256 -b textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM \
-    && echo 'SHA256 for textpattern-'$VER'.tar.gz: '$(cat textpattern-$VER.tar.gz.SHA256SUM) \
-    && echo 'Checking textpattern-'$VER'.tar.gz against textpattern-'$VER'.tar.gz.SHA256SUM...' \
-    && shasum -a 256 -c textpattern-$VER.tar.gz.SHA256SUM textpattern-$VER.tar.gz
+    && echo '=> SHA256 for textpattern-'$VER'.tar.gz: '$(cat textpattern-$VER.tar.gz.SHA256SUM) \
+    && echo '=> Checking textpattern-'$VER'.tar.gz against textpattern-'$VER'.tar.gz.SHA256SUM...' \
+    && shasum -a 256 -c textpattern-"$VER".tar.gz.SHA256SUM textpattern-$VER.tar.gz
 else 
-    echo 'textpattern-$VER.tar.gz failed `gzip -t` integrity test.'
+    echo '=> textpattern-$VER.tar.gz failed `gzip -t` integrity test.'
 fi
 
 zip --symlinks -r -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
 echo '=> Testing textpattern-'$VER'.zip integrity...'
 if unzip -t textpattern-$VER.zip; then
-    echo 'textpattern-'$VER'.zip passed `unzip -t` integrity test. Calculating SHA256 checksum...' \
+    echo '=> textpattern-'$VER'.zip passed `unzip -t` integrity test. Calculating SHA256 checksum...' \
     && shasum -a 256 -b textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM \
-    && echo 'SHA256 for textpattern-'$VER'.zip: '$(cat textpattern-$VER.zip.SHA256SUM) \
-    && echo 'Checking textpattern-'$VER'.zip against textpattern-'$VER'.zip.SHA256SUM...' \
-    && shasum -a 256 -c $(cat textpattern-$VER.zip.SHA256SUM) textpattern-$VER.zip
+    && echo '=> SHA256 for textpattern-'$VER'.zip: '$(cat textpattern-$VER.zip.SHA256SUM) \
+    && echo '=> Checking textpattern-'$VER'.zip against textpattern-'$VER'.zip.SHA256SUM...' \
+    && shasum -a 256 -c textpattern-"$VER".zip.SHA256SUM textpattern-$VER.zip
 else 
-    echo 'textpattern-$VER.zip failed `unzip -t` integrity test.'
+    echo '=> textpattern-$VER.zip failed `unzip -t` integrity test.'
 fi
 
 cd $OLDDIR
