@@ -46,7 +46,7 @@ git checkout-index -a -f --prefix="$DESTDIR"/textpattern-"$VER"/
 
 cd "$DESTDIR || exit" || exit
 
-# Tidy and remove development helper files.
+# Tidy and remove Textpattern development helper files.
 rm textpattern-"$VER".tar.gz
 rm textpattern-"$VER".zip
 rm textpattern-"$VER"/.gitattributes
