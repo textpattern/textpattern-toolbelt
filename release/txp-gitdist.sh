@@ -73,15 +73,17 @@ rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/SECURITY.md
 rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/VERSION
 rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/composer.json
 
-# Bundle up.
+# Build .tar.gz.
 echo -e "\n"
 echo '== Building textpattern-'$VER'.tar.gz in '$DESTDIR'...'
 tar cf - -C $DESTDIR textpattern-$VER | gzip -c9 -q > textpattern-$VER.tar.gz
+
+# Build .zip.
 echo -e "\n"
 echo '== Building textpattern-'$VER'.zip in '$DESTDIR'...'
 zip --symlinks -r -q -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\*
 
-# Tests and checksums for .tar.gz
+# Tests and checksums for .tar.gz.
 echo -e "\n"
 echo '== Testing textpattern-'$VER'.tar.gz integrity...'
 if gzip -t textpattern-$VER.tar.gz; then
@@ -95,7 +97,7 @@ else
     echo ' - textpattern-$VER.tar.gz failed `gzip -t` integrity test.'
 fi
 
-# Tests and checksums for .zip
+# Tests and checksums for .zip.
 echo -e "\n"
 echo '== Testing textpattern-'$VER'.zip integrity...'
 if unzip -q -t textpattern-$VER.zip; then
