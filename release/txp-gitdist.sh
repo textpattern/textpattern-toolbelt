@@ -90,7 +90,7 @@ if gzip -t textpattern-$VER.tar.gz; then
     echo ' - textpattern-'$VER'.tar.gz passed `gzip -t` integrity test.' \
     && echo ' - Calculating textpattern-'$VER'.tar.gz checksum...' \
     && shasum -a 256 textpattern-$VER.tar.gz > textpattern-$VER.tar.gz.SHA256SUM \
-    && echo ' - SHA256 for textpattern-'$VER'.tar.gz: '$(< textpattern-$VER.tar.gz.SHA256SUM) \
+    && echo -e " - SHA256 for textpattern-'$VER'.tar.gz:\n   "$(cat textpattern-$VER.tar.gz.SHA256SUM | cut -c1-64) \
     && echo ' - Checking textpattern-'$VER'.tar.gz checksum...' \
     && shasum -a 256 -c textpattern-$VER.tar.gz.SHA256SUM
 else 
@@ -104,7 +104,7 @@ if unzip -q -t textpattern-$VER.zip; then
     echo ' - textpattern-'$VER'.zip passed `unzip -t` integrity test.' \
     && echo ' - Calculating textpattern-'$VER'.zip checksum...' \
     && shasum -a 256 textpattern-$VER.zip > textpattern-$VER.zip.SHA256SUM \
-    && echo ' - SHA256 for textpattern-'$VER'.zip: '$(< textpattern-$VER.zip.SHA256SUM) \
+    && echo -e " - SHA256 for textpattern-'$VER'.zip:\n   "$(cat textpattern-$VER.zip.SHA256SUM | cut -c1-64) \
     && echo ' - Checking textpattern-'$VER'.zip checksum...' \
     && shasum -a 256 -c textpattern-$VER.zip.SHA256SUM
 else 
