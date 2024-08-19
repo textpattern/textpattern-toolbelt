@@ -93,6 +93,12 @@ echo '== Building textpattern-'$VER'.zip in '$DESTDIR'.'
 zip --symlinks -r -q -9 textpattern-$VER.zip textpattern-$VER --exclude textpattern-$VER/sites/\* \
 && echo ' - Built textpattern-'$VER'.zip ('$(wc -c textpattern-$VER.zip | awk '{print $1}' | xargs -I {} echo "scale=4; {}/1024^2" | bc | xargs printf "%.2f")'MB).'
 
+# Build 7-Zip-flavour.zip.
+echo -e "\n"
+echo '== Building textpattern-'$VER'.7-zip.zip in '$DESTDIR'.'
+zip --symlinks -r -q -9 textpattern-$VER-7-zip.zip textpattern-$VER --exclude textpattern-$VER/sites/\* \
+&& echo ' - Built textpattern-'$VER'-7-zip.zip ('$(wc -c textpattern-$VER.zip | awk '{print $1}' | xargs -I {} echo "scale=4; {}/1024^2" | bc | xargs printf "%.2f")'MB).'
+
 # Tests and checksums for .tar.gz.
 echo -e "\n"
 echo '== Testing textpattern-'$VER'.tar.gz integrity...'
