@@ -42,7 +42,7 @@ Post an announcemnet to Open Collective for our supporters (@philwareham).
 
 ## Socials
 
-### Twitter
+### Mastodon & X
 
 Include a 'thank you' to our contributors, GitHub sponsors, platform and tooling sponsors (DigitalOcean, BrowserStack, and 1Password), forum support, cheerleaders.
 
