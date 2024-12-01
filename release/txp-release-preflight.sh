@@ -58,3 +58,11 @@ else
 	echo "xz NOT found"
 fi
 
+echo "Checking zip..."
+ZIP_VERSION="$(zip -v)"
+if [ "$ZIP_VERSION" != "command not found" ]; then
+	echo "zip found"
+else
+	echo "zip NOT found"
+fi
+
