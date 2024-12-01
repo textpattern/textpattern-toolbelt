@@ -29,7 +29,7 @@ This process prepares a development branch of Textpattern for beta, release cand
 [WIP]
 
 * Local instance of PHP CLI, `gzip`, `shasum`, `tar`, `xz` and `zip`.
-  * Checks: `php -v`, `gzip -V`, `shasum -v`, `tar --version`, `xz -v` and `zip -v`.
+  * Checks: `php -v`, `gzip -V`, `shasum -v`, `tar --version`, `xz --version` and `zip -v`.
 * Know the intended next release version for resetting the repo after launch.
 * Know the respective `textpattern.com` file IDs for the `.zip`, `.tar.gz` and `.tar.xz` archives.
 
