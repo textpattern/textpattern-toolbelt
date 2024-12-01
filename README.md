@@ -1,6 +1,6 @@
 # Developer Toolbelt for Textpattern CMS
 
-A collection of tools which help to develop [Textpattern CMS](https://textpattern.com/).
+A collection of tools which help make [Textpattern CMS](https://textpattern.com/) releases.
 
 ## Contributing
 
@@ -18,7 +18,7 @@ This process prepares a development branch of Textpattern for beta, release cand
 
 * Semantic versioning is used, with `major.minor.patch` nomenclature.
 * Development code is suffixed `-dev`.
-* Development code can become a beta release, release candidate and/or production release.
+* Development code can become a beta release, release candidate and / or production release.
 * Beta releases are suffixed `-beta`, `-beta.2`, `-beta.3` and so on.
 * Release candidates are suffixed `-rc1`, `-rc2`, `-rc3` and so on.
 * References to `x.y.z` below refer to the Textpattern version number and may be suffixed as mentioned.
@@ -28,12 +28,12 @@ This process prepares a development branch of Textpattern for beta, release cand
 
 [WIP]
 
-* Local instance of PHP CLI, `gzip`, `shasum`, `tar` and `zip`.
-  * Checks: `php -v`, `gzip -V`, `shasum -v`, `tar --version` and `zip -v`.
+* Local instance of PHP CLI, `gzip`, `shasum`, `tar`, `xz` and `zip`.
+  * Checks: `php -v`, `gzip -V`, `shasum -v`, `tar --version`, `xz -v` and `zip -v`.
 * Know the intended next release version for resetting the repo after launch.
-* Know the respective `textpattern.com` file IDs for the `.zip` and `.tar.gz` archives.
+* Know the respective `textpattern.com` file IDs for the `.zip`, `.tar.gz` and `.tar.xz` archives.
 
-Some versions of macOS do not include PHP by default. PHP for macOS can be installed using [Homebrew](https://brew.sh) or [MacPorts](https://www.macports.org).
+Some versions of macOS do not include PHP by default. PHP for macOS can be installed using [Homebrew](https://brewtxp-release.sh) or [MacPorts](https://www.macports.org).
 
 ### Step 0: Ensure everything is up-to-date
 
@@ -72,7 +72,7 @@ Update version number(s) and remove any references to 'upcoming' in:
 * `INSTALL.txt`
 * `UPGRADE.txt`
 * `package.json`
-* `README.md` (including the download file IDs - add 2 usually, but check for beta release(s)).
+* `README.md` (including the download file IDs - add 3 usually, but check for beta release(s)).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
 * Theme manifests:
@@ -118,14 +118,14 @@ Commit with message of the format `Checksums for x.y.z`.
 
 Copy the entire bundle to a local directory and test. Things to look for:
 
-1. New installation/setup works.
+1. New installation / setup works.
 2. Upgrade from (populated) recent versions works.
 3. Multi-site installations work.
 4. Automated installations work.
 5. Version numbers are reported correctly throughout.
 6. The High Diagnostics panel reports everything correctly.
 7. Public tags provide expected output.
-8. Runs on as many versions of PHP, MySQL (and own-brand equivalents), Apache, Nginx.
+8. Runs on as many versions of PHP, MySQL (and own-brand remixes), Apache, Nginx.
 9. Interface UI strings are all assigned English labels.
 10. Left over files that need deleting.
 
@@ -147,11 +147,11 @@ git push
 
 ### Step 10: Build the archives
 
-Run the archive build script. It will build two archive files (`textpattern-x.y.z.zip` and `textpattern-x.y.z.tar.gz`) with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
+Run the archive build script. It will build three archive files (`textpattern-x.y.z.zip`, `textpattern-x.y.z.tar.gz` and  `textpattern-x.y.z.tar.xz`) with corresponding SHA256 checksum files in a temporary location and report where that is. Supply a second argument if you wish to override this destination.
 
 ```bash
 cd /path/to/working-branch-repo
-bash /path/to/textpattern-toolbelt/release/txp-gitdist.sh x.y.z
+bash /path/to/textpattern-toolbelt/release/txp-releasetxp-release.sh x.y.z
 ```
 
 ### Step 11: Verify archives
@@ -180,8 +180,10 @@ For each uploaded file, select the appropriate file category:
 ```
 Current release (Zip format)
 Current release (Gzip format)
+Current release (Xz format)
 Current beta release (Zip format)
 Current beta release (Gzip format)
+Current beta release (Xz format)
 ```
 
 Make sure the `Title` and `Description` fields are filled out correctly (see previous files for examples of this). `Title` holds the release version number. `Description` houses the SHA256 token.
@@ -197,6 +199,7 @@ When writing the corresponding article, use the shortcode as follows:
 ```html
 notextile. <txp::media_file filename="textpattern-x.y.z.zip" />
 <txp::media_file filename="textpattern-x.y.z.tar.gz" />
+<txp::media_file filename="textpattern-x.y.z.tar.xz" />
 ```
 
 ### Step 16: Update orientation information
@@ -240,13 +243,13 @@ Delete release branch as it has served its purpose:
 git branch -d release-x.y.z
 ```
 
-You might have to use `-D` switch if the branch deletion complains it's 'unmerged': that's because we just modified it ready for returning to `dev`. It depends if the release branch was pushed upstream or not. If so:
+You might have to use `-D` switch if the branch deletion complains it's 'unmerged'. That's because we just modified it ready for returning to `dev`. It depends if the release branch was pushed upstream or not. If so:
 
 ```bash
 git push origin --delete release-x.y.z
 ```
 
-If you've just released a feature branch (i.e. patch, not minor/major dev release) then there'll be the old `vx.y.z` branch on your local and remote servers. Once you're absolutely sure that the merge back to dev from `release-x.y.z` has completed and pushed to the server successfully, you can remove your local and remote `vx.y.z` branches:
+If you've just released a feature branch (i.e. patch, not minor/major dev release) then there will be the old `vx.y.z` branch on your local and remote servers. Once you're absolutely sure that the merge back to dev from `release-x.y.z` has completed and pushed to the server successfully, you can remove your local and remote `vx.y.z` branches:
 
 ```bash
 git branch -d vx.y.z
@@ -257,7 +260,7 @@ git push origin --delete vx.y.z
 
 * note: only for production releases, ping @petecooper if you're stuck.
 
-The `textpattern.com` configuration is [here](https://github.com/textpattern/server-config/blob/main/servers/files/trapeze.textpattern.net/etc/nginx/servers-available/www.textpattern.com.conf), search for `#start release vars`.
+The `textpattern.com` configuration is [here](https://github.com/textpattern/server-config/blob/main/live/servers/files/triton.textpattern.net/opt/nginx/servers-available/www.textpattern.com.conf), search for `#start release vars`.
 
 * set `txpver_1b8835e8` variable to release version in semver format (e.g. `1.2.3`).
 * set `$targzid_1b8835e8` to the Textpattern file ID for the `.tar.gz` archive (e.g `101`).
