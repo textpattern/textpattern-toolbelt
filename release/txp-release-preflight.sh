@@ -18,3 +18,10 @@
 # * You should have received a copy of the GNU General Public License
 # * along with Textpattern. If not, see <https://www.gnu.org/licenses/>.
 # */
+echo "Checking git..."
+GIT_VERSION="$(git --version)"
+if [ "$GIT_VERSION" != "command not found" ]; then
+    echo "git found"
+else
+    echo "git not found"
+fi
