@@ -25,6 +25,7 @@ if [ "$GIT_VERSION" != "command not found" ]; then
 else
     echo "git NOT found"
 fi
+
 echo "Checking gzip..."
 GZIP_VERSION="$(gzip -V)"
 if [ "$GZIP_VERSION" != "command not found" ]; then
@@ -32,6 +33,7 @@ if [ "$GZIP_VERSION" != "command not found" ]; then
 else
 	echo "gzip NOT found"
 fi
+
 echo "Checking shasum..."
 SHASUM_VERSION="$(shasum -v)"
 if [ "$SHASUM_VERSION" != "command not found" ]; then
@@ -39,3 +41,12 @@ if [ "$SHASUM_VERSION" != "command not found" ]; then
 else
 	echo "shasum NOT found"
 fi
+
+echo "Checking tar..."
+TAR_VERSION="$(tar --version)"
+if [ "$TAR_VERSION" != "command not found" ]; then
+	echo "tar found"
+else
+	echo "tar NOT found"
+fi
+
