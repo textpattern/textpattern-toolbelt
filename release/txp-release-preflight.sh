@@ -25,3 +25,10 @@ if [ "$GIT_VERSION" != "command not found" ]; then
 else
     echo "git not found"
 fi
+echo -e "\nChecking gzip..."
+GZIP_VERSION="$(gzip -V)"
+if [ "$GIT_VERSION" != "command not found" ]; then
+	echo "gzip found"
+else
+	echo "gzip not found"
+fi
