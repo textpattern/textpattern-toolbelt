@@ -263,14 +263,16 @@ git push origin --delete vx.y.z
 The `textpattern.com` configuration is [here](https://github.com/textpattern/server-config/blob/main/live/servers/files/triton.textpattern.net/opt/nginx/servers-available/www.textpattern.com.conf), search for `#start release vars`.
 
 * set `txpver_1b8835e8` variable to release version in semver format (e.g. `1.2.3`).
-* set `$targzid_1b8835e8` to the Textpattern file ID for the `.tar.gz` archive (e.g `101`).
-* set `$zipid_1b8835e8` to the Textpattern file ID for the `.zip` archive (e.g `102`).
+* set `$targzid_1b8835e8` to the Textpattern file ID for the `.tar.gz` archive (e.g `457`).
+* set `$tarxzid_1b8835e8` to the Textpattern file ID for the `.tar.xz` archive (e.g `458`).
+* set `$zipid_1b8835e8` to the Textpattern file ID for the `.zip` archive (e.g `456`).
 * upload the file to overwrite the existing `/etc/nginx/servers-available/www.textpattern.com.conf` (or modify in place).
 * restart Nginx (i.e. `sudo systemctl restart nginx`).
 
 Check downloads for the following:
 
 * https://textpattern.com/latest.tar.gz
+* https://textpattern.com/latest.tar.xz
 * https://textpattern.com/latest.zip
 * https://textpattern.com/pophelp-download
 * https://textpattern.com/textpack-download
