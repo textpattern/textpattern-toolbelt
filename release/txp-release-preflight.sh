@@ -34,6 +34,14 @@ else
 	echo "gzip NOT found"
 fi
 
+echo "Checking php.."
+PHP_VERSION="$(php -V)"
+if [ "$PHP_VERSION" != "command not found" ]; then
+	echo "php found"
+else
+	echo "php NOT found"
+fi
+
 echo "Checking shasum..."
 SHASUM_VERSION="$(shasum -v)"
 if [ "$SHASUM_VERSION" != "command not found" ]; then
