@@ -50,3 +50,11 @@ else
 	echo "tar NOT found"
 fi
 
+echo "Checking xz..."
+XZ_VERSION="$(xz --version)"
+if [ "$XZ_VERSION" != "command not found" ]; then
+	echo "xz found"
+else
+	echo "xz NOT found"
+fi
+
