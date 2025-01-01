@@ -138,4 +138,4 @@ fi
 cd $OLDDIR
 
 echo -e "\n"
-echo '== Textpattern '$VER' built in '$DESTDIR
+echo '== Textpattern v'$VER' built in '$DESTDIR
