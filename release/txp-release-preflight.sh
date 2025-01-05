@@ -19,7 +19,7 @@
 # * along with Textpattern. If not, see <https://www.gnu.org/licenses/>.
 # */
 echo "Checking bzip2..."
-BZIP2_VERSION="$(bzip2 -V)"
+BZIP2_VERSION="$(bzip2 --v)"
 if [ "$BZIP2_VERSION" != "command not found" ]; then
 	echo "bzip2 found"
 else
