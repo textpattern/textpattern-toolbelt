@@ -18,12 +18,20 @@
 # * You should have received a copy of the GNU General Public License
 # * along with Textpattern. If not, see <https://www.gnu.org/licenses/>.
 # */
+echo "Checking bzip2..."
+BZIP2_VERSION="$(bzip2 -V)"
+if [ "$BZIP2_VERSION" != "command not found" ]; then
+	echo "bzip2 found"
+else
+	echo "bzip2 NOT found"
+fi
+
 echo "Checking git..."
 GIT_VERSION="$(git --version)"
 if [ "$GIT_VERSION" != "command not found" ]; then
-    echo "git found"
+	echo "git found"
 else
-    echo "git NOT found"
+	echo "git NOT found"
 fi
 
 echo "Checking gzip..."
