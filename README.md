@@ -33,7 +33,7 @@ This process prepares a development branch of Textpattern for beta, release cand
 * Know the intended next release version for resetting the repo after launch.
 * Know the respective `textpattern.com` file IDs for the `.zip`, `.tar.gz` and `.tar.xz` archives.
 
-Some versions of macOS do not include PHP by default. PHP for macOS can be installed using [Homebrew](https://brewtxp-release.sh) or [MacPorts](https://www.macports.org).
+Some versions of macOS do not include PHP by default. PHP for macOS can be installed using [Homebrew](https://brew.sh) or [MacPorts](https://www.macports.org).
 
 ### Step 0: Ensure everything is up-to-date
 
