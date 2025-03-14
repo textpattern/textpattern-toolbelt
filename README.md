@@ -35,6 +35,8 @@ This process prepares a development branch of Textpattern for beta, release cand
 
 Some versions of macOS do not include PHP by default. PHP for macOS can be installed using [Homebrew](https://brew.sh) or [MacPorts](https://www.macports.org).
 
+Some versions of macOS do not include `xz` by default. `xz` for macOS can be obtained from https://github.com/donmccaughey/xz_pkg.
+
 ### Step 0: Ensure everything is up-to-date
 
 On [textpattern/textpattern](https://github.com/textpattern/textpattern/), update `HISTORY.txt` with final added / changed / fixed release notes, but *do not set the release date*. Merge to other branch(es) where appropriate, ensure all branches (i.e. `main`, `dev`, and any feature branches) are up-to-date where appropriate:
