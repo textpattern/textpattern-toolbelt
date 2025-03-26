@@ -67,14 +67,6 @@ rm -rf textpattern-$VER/.github
 find . -name '.gitignore' -type f -delete
 find . -name '.DS_Store' -type f -delete
 
-# Tidy and remove vendor furniture.
-rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/.editorconfig
-rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/COMMITMENT
-rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/README.md
-rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/SECURITY.md
-rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/VERSION
-rm textpattern-$VER/textpattern/vendors/phpmailer/phpmailer/composer.json
-
 # Build .tar.gz.
 echo -e "\n"
 echo '== Building textpattern-'"$VER"'.tar.gz in '"$DESTDIR"'.'
