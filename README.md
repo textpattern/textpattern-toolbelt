@@ -153,7 +153,7 @@ Run the archive build script. It will build three archive files (`textpattern-x.
 
 ```bash
 cd /path/to/working-branch-repo
-bash /path/to/textpattern-toolbelt/release/txp-releasetxp-release.sh x.y.z
+bash /path/to/textpattern-toolbelt/release/txp-release.sh x.y.z
 ```
 
 ### Step 11: Verify archives

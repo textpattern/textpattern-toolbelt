@@ -93,7 +93,7 @@ echo '== Building textpattern-'"$VER"'.zip in '"$DESTDIR"'.'
 zip --symlinks -r -q -9 textpattern-"$VER".zip textpattern-"$VER" --exclude textpattern-"$VER"/sites/\* \
 && echo ' - Built textpattern-'"$VER"'.zip ('$(wc -c textpattern-"$VER".zip | awk '{print $1}' | xargs -I {} echo "scale=4; {}/1024^2" | bc | xargs printf "%.2f")'MB).'
 
-# Tests and checksums for .tar.gz archive.
+# Tests and checksums for .tar.gz.
 echo -e "\n"
 echo '== Testing textpattern-'"$VER"'.tar.gz integrity...'
 if gzip -t textpattern-"$VER".tar.gz 2>&1 | sed 's/^/   /'; then
@@ -107,7 +107,7 @@ else
     echo ' - textpattern-$VER.tar.gz failed `gzip -t` integrity test.'
 fi
 
-# Tests and checksums for .tar.xz archive.
+# Tests and checksums for .tar.xz.
 echo -e "\n"
 echo '== Testing textpattern-'"$VER"'.tar.xz integrity...'
 if xz -q -t textpattern-"$VER".tar.xz 2>&1 | sed 's/^/   /'; then
@@ -121,7 +121,7 @@ else
     echo ' - textpattern-$VER.tar.xz failed `xz -t` integrity test.'
 fi
 
-# Tests and checksums for .zip archive.
+# Tests and checksums for .zip.
 echo -e "\n"
 echo '== Testing textpattern-'"$VER"'.zip integrity...'
 if unzip -q -t textpattern-"$VER".zip 2>&1 | sed 's/^/   /'; then
@@ -138,4 +138,4 @@ fi
 cd $OLDDIR
 
 echo -e "\n"
-echo '== Textpattern v'$VER' built in '$DESTDIR
+echo '== Textpattern '$VER' built in '$DESTDIR
