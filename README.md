@@ -225,6 +225,7 @@ Edit the following files to bump version number to next intended release. Ensure
 * `textpattern/lib/constants.php` (also set `$txp_is_dev` to `true` if it was previously `false`).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
+* The `textpattern.version` value in `sites/site1/admin/textpattern.js`.
 
 Commit to ensure the version change is applied, using a suitable commit message of the format 'Back to dev' or 'Towards x.y.z'.
 
