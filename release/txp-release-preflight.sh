@@ -19,7 +19,7 @@
 # * along with Textpattern. If not, see <https://www.gnu.org/licenses/>.
 # */
 echo -e '=> Checking `git`...'
-GIT_VERSION="$(git --version)"
+GIT_VERSION="$(git --version 2>&1)"
 if [ "$GIT_VERSION" != "command not found" ]; then
 	echo -e '`git` found'
 else
@@ -27,7 +27,7 @@ else
 fi
 
 echo -e '\n=> Checking gzip...'
-GZIP_VERSION="$(gzip -V)"
+GZIP_VERSION="$(gzip -V 2>&1)"
 if [ "$GZIP_VERSION" != "command not found" ]; then
 	echo -e '`gzip` found'
 else
@@ -35,7 +35,7 @@ else
 fi
 
 echo -e '\n=> Checking php...'
-PHP_VERSION="$(php -v)"
+PHP_VERSION="$(php -v 2>&1)"
 if [ "$PHP_VERSION" != "command not found" ]; then
 	echo -e '`php` found'
 else
@@ -43,7 +43,7 @@ else
 fi
 
 echo -e '\n=> Checking shasum...'
-SHASUM_VERSION="$(shasum -v)"
+SHASUM_VERSION="$(shasum -v 2>&1)"
 if [ "$SHASUM_VERSION" != "command not found" ]; then
 	echo -e '`shasum` found'
 else
@@ -51,7 +51,7 @@ else
 fi
 
 echo -e '\n=> Checking tar...'
-TAR_VERSION="$(tar --version)"
+TAR_VERSION="$(tar --version 2>&1)"
 if [ "$TAR_VERSION" != "command not found" ]; then
 	echo -e '`tar` found'
 else
@@ -59,7 +59,7 @@ else
 fi
 
 echo -e '\n=> Checking xz...'
-XZ_VERSION="$(xz --version)"
+XZ_VERSION="$(xz --version 2>&1)"
 if [ "$XZ_VERSION" != "command not found" ]; then
 	echo -e '`xz` found'
 else
@@ -67,7 +67,7 @@ else
 fi
 
 echo -e '\n=> Checking zip...'
-ZIP_VERSION="$(zip -v)"
+ZIP_VERSION="$(zip -v 2>&1)"
 if [ "$ZIP_VERSION" != "command not found" ]; then
 	echo -e '`zip` found'
 else
