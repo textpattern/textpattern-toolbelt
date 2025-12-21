@@ -18,59 +18,59 @@
 # * You should have received a copy of the GNU General Public License
 # * along with Textpattern. If not, see <https://www.gnu.org/licenses/>.
 # */
-echo "=> Checking `git`..."
+echo -e '=> Checking `git`...'
 GIT_VERSION="$(git --version)"
 if [ "$GIT_VERSION" != "command not found" ]; then
-	echo "`git` found"
+	echo -e '`git` found'
 else
-	echo "`git` NOT found"
+	echo -e '`git` NOT found'
 fi
 
-echo -e "\n=> Checking `gzip`..."
+echo -e '\n=> Checking gzip...'
 GZIP_VERSION="$(gzip -V)"
 if [ "$GZIP_VERSION" != "command not found" ]; then
-	echo "`gzip` found"
+	echo -e '`gzip` found'
 else
-	echo "`gzip` NOT found"
+	echo -e '`gzip` NOT found'
 fi
 
-echo -e "\n=> Checking php.."
+echo -e '\n=> Checking php...'
 PHP_VERSION="$(php -v)"
 if [ "$PHP_VERSION" != "command not found" ]; then
-	echo "`php` found"
+	echo -e '`php` found'
 else
-	echo "`php` NOT found"
+	echo -e '`php` NOT found'
 fi
 
-echo -e "\n=> Checking shasum..."
+echo -e '\n=> Checking shasum...'
 SHASUM_VERSION="$(shasum -v)"
 if [ "$SHASUM_VERSION" != "command not found" ]; then
-	echo "`shasum` found"
+	echo -e '`shasum` found'
 else
-	echo "`shasum` NOT found"
+	echo -e '`shasum` NOT found'
 fi
 
-echo -e "\n=> Checking tar..."
+echo -e '\n=> Checking tar...'
 TAR_VERSION="$(tar --version)"
 if [ "$TAR_VERSION" != "command not found" ]; then
-	echo "`tar` found"
+	echo -e '`tar` found'
 else
-	echo "`tar` NOT found"
+	echo -e '`tar` NOT found'
 fi
 
-echo -e "\n=> Checking xz..."
+echo -e '\n=> Checking xz...'
 XZ_VERSION="$(xz --version)"
 if [ "$XZ_VERSION" != "command not found" ]; then
-	echo "`xz` found"
+	echo -e '`xz` found'
 else
-	echo "`xz` NOT found"
+	echo -e '`xz` NOT found'
 fi
 
-echo -e "\n=> Checking zip..."
+echo -e '\n=> Checking zip...'
 ZIP_VERSION="$(zip -v)"
 if [ "$ZIP_VERSION" != "command not found" ]; then
-	echo "`zip` found"
+	echo -e '`zip` found'
 else
-	echo "`zip` NOT found"
+	echo -e '`zip` NOT found'
 fi
 
