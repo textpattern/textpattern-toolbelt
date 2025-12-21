@@ -77,6 +77,7 @@ Update version number(s) and remove any references to 'upcoming' in:
 * `README.md` (including the download file IDs - add 3 usually, but check for beta release(s)).
 * The `version` preference value in `textpattern/vendors/Textpattern/DB/Data/core.prefs`.
 * The `textpattern.version` value in `textpattern/textpattern.js`.
+* The `textpattern.version` value in `sites/site1/admin/textpattern.js`.
 * Theme manifests:
   * `textpattern/setup/themes/[default-theme-name]/manifest.json`
   * `textpattern/setup/themes/zero/manifest.json`
