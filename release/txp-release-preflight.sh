@@ -21,56 +21,56 @@
 echo -e '=> Checking `git`...'
 GIT_VERSION="$(git --version 2>&1)"
 if [ "$GIT_VERSION" != "command not found" ]; then
-	echo -e '`git` found'
+	echo -e '   `git` found'
 else
-	echo -e '`git` NOT found'
+	echo -e '   `git` NOT found'
 fi
 
 echo -e '\n=> Checking gzip...'
 GZIP_VERSION="$(gzip -V 2>&1)"
 if [ "$GZIP_VERSION" != "command not found" ]; then
-	echo -e '`gzip` found'
+	echo -e '   `gzip` found'
 else
-	echo -e '`gzip` NOT found'
+	echo -e '   `gzip` NOT found'
 fi
 
 echo -e '\n=> Checking php...'
 PHP_VERSION="$(php -v 2>&1)"
 if [ "$PHP_VERSION" != "command not found" ]; then
-	echo -e '`php` found'
+	echo -e '   `php` found'
 else
-	echo -e '`php` NOT found'
+	echo -e '   `php` NOT found'
 fi
 
 echo -e '\n=> Checking shasum...'
 SHASUM_VERSION="$(shasum -v 2>&1)"
 if [ "$SHASUM_VERSION" != "command not found" ]; then
-	echo -e '`shasum` found'
+	echo -e '   `shasum` found'
 else
-	echo -e '`shasum` NOT found'
+	echo -e '   `shasum` NOT found'
 fi
 
 echo -e '\n=> Checking tar...'
 TAR_VERSION="$(tar --version 2>&1)"
 if [ "$TAR_VERSION" != "command not found" ]; then
-	echo -e '`tar` found'
+	echo -e '   `tar` found'
 else
-	echo -e '`tar` NOT found'
+	echo -e '   `tar` NOT found'
 fi
 
 echo -e '\n=> Checking xz...'
 XZ_VERSION="$(xz --version 2>&1)"
 if [ "$XZ_VERSION" != "command not found" ]; then
-	echo -e '`xz` found'
+	echo -e '   `xz` found'
 else
-	echo -e '`xz` NOT found'
+	echo -e '   `xz` NOT found'
 fi
 
 echo -e '\n=> Checking zip...'
 ZIP_VERSION="$(zip -v 2>&1)"
 if [ "$ZIP_VERSION" != "command not found" ]; then
-	echo -e '`zip` found'
+	echo -e '   `zip` found'
 else
-	echo -e '`zip` NOT found'
+	echo -e '   `zip` NOT found'
 fi
 
