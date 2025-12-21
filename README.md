@@ -35,7 +35,7 @@ This process prepares a development branch of Textpattern for beta, release cand
 
 Some versions of macOS do not include PHP by default. PHP for macOS can be installed using [Homebrew](https://brew.sh) or [MacPorts](https://www.macports.org).
 
-Some versions of macOS do not include `xz` by default. `xz` for macOS can be obtained from https://github.com/donmccaughey/xz_pkg.
+Some versions of macOS do not include `xz` by default. `xz` for macOS can be obtained from https://github.com/donmccaughey/xz_pkg. It may be preferable to use [xz for Homebrew](https://formulae.brew.sh/formula/xz) or [xz for Macports](https://ports.macports.org/port/xz/).
 
 ### Step 0: Ensure everything is up-to-date
 
