@@ -35,7 +35,7 @@ else
 fi
 
 echo "Checking php.."
-PHP_VERSION="$(php -V)"
+PHP_VERSION="$(php -v)"
 if [ "$PHP_VERSION" != "command not found" ]; then
 	echo "php found"
 else
