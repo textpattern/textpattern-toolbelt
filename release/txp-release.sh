@@ -71,13 +71,13 @@ find . -name '.DS_Store' -type f -delete
 # Build .tar.gz.
 echo -e "\n"
 echo '== Building textpattern-'"$VER"'.tar.gz in '"$DESTDIR"'.'
-tar cf - -C "$DESTDIR" textpattern-"$VER" | gzip -c9 -q > textpattern-"$VER".tar.gz \
+tar cf --no-xattrs - -C "$DESTDIR" textpattern-"$VER" | gzip -c9 -q > textpattern-"$VER".tar.gz \
 && echo ' - Built textpattern-'"$VER"'.tar.gz ('$(wc -c textpattern-"$VER".tar.gz | awk '{print $1}' | xargs -I {} echo "scale=4; {}/1024^2" | bc | xargs printf "%.2f")'MB).'
 
 # Build .tar.xz.
 echo -e "\n"
 echo '== Building textpattern-'"$VER"'.tar.xz in '"$DESTDIR"'.'
-tar cf - -C "$DESTDIR" textpattern-"$VER" | xz -9e -z -q > textpattern-"$VER".tar.xz \
+tar cf --no-xattrs - -C "$DESTDIR" textpattern-"$VER" | xz -9e -z -q > textpattern-"$VER".tar.xz \
 && echo ' - Built textpattern-'"$VER"'.tar.xz ('$(wc -c textpattern-"$VER".tar.xz | awk '{print $1}' | xargs -I {} echo "scale=4; {}/1024^2" | bc | xargs printf "%.2f")'MB).'
 
 # Build .zip.
