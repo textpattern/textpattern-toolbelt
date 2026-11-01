@@ -98,7 +98,7 @@ Commit all changes with a commit message of the format `HISTORY and version numb
 
 ### Step 5: Update version number
 
-Edit `textpattern/lib/constants.php` to update the version number.
+Edit `textpattern/lib/constants.php` to update the version number (`$thisversion`).
 
 **Most importantly:**
 
