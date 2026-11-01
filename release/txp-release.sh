@@ -132,3 +132,8 @@ cd $OLDDIR
 
 echo -e "\n"
 echo '== Textpattern v'$VER' built in '$DESTDIR
+
+# Check for macOS and pop a Finder window.
+if [ "$OSTYPE" == "darwin"*  ]; then
+    open $DESTDIR
+fi
