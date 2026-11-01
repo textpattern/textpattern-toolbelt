@@ -229,15 +229,29 @@ Edit the following files to bump version number to next intended release. Ensure
 
 Commit to ensure the version change is applied, using a suitable commit message of the format 'Back to dev' or 'Towards x.y.z'.
 
-### Step 18: Merge `release-x.y.z` back into `dev`
+### Step 18: Merge `release-x.y.z` back into `dev` and 4.9,x
 
-Merge release to `dev` so changes in the release are recorded:
+Merge release to the current `4.9.x` and `dev` so changes in the release are recorded:
+
+For 4.9.x:
+
+```bash
+git checkout 4.9.x
+git merge release-x.y.z
+git push
+```
+
+For dev:
 
 ```bash
 git checkout dev
 git merge release-x.y.z
 git push
 ```
+
+Merging into `dev` will likely result in a bunch of merge conflicts surrounding the version number. This is expected, and they can be resolved on a per-file basis. The admin-theme/assets/textpattern.css files are usually also different treat these on a case-by-case basis. As the dev branch begins to diverge further, this merge may become more difficult and may end up simply keeping the dev textpattern.css assets and cherry picking individual stylesheet commits to push forward.
+
+The checksums files will also differ. Optionally, update those, or leave them to a later date. They don't affect code or anyone's experience when the core is in a 'dev' state.
 
 ### Step 19: Tidy up branches
 
