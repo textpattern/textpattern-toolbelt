@@ -64,6 +64,7 @@ rm textpattern-$VER/package.json
 rm textpattern-$VER/phpcs.xml
 rm textpattern-$VER/README.md
 rm textpattern-$VER/SECURITY.md
+rm textpattern-$VER/textpattern/lang/README.txt
 rm -rf textpattern-$VER/.github
 find . -name '.gitignore' -type f -delete
 find . -name '.DS_Store' -type f -delete
